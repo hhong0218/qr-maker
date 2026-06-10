@@ -623,10 +623,12 @@ input[type="color"] {
   width: 100%;
 }
 
-.export-btn {
+.btn-primary,
+.btn-secondary {
   padding: 14px 16px;
   border: 1px solid var(--border);
   background: var(--surface);
+  color: var(--text);
   border-radius: var(--radius);
   cursor: pointer;
   font-family: inherit;
@@ -636,12 +638,12 @@ input[type="color"] {
   position: relative;
 }
 
-.export-btn:hover {
+.btn-secondary:hover {
   border-color: var(--primary);
   background: #eff6ff;
 }
 
-.export-btn.primary {
+.btn-primary {
   grid-column: 1 / -1;
   background: var(--primary);
   color: white;
@@ -650,11 +652,12 @@ input[type="color"] {
   padding: 18px;
 }
 
-.export-btn.primary:hover {
+.btn-primary:hover {
   background: var(--primary-dark);
+  border-color: var(--primary-dark);
 }
 
-.btn-badge {
+.free-badge {
   display: inline-block;
   background: var(--accent);
   color: #1e293b;
@@ -770,7 +773,7 @@ input[type="color"] {
     grid-template-columns: 1fr;
   }
 
-  .export-btn.primary {
+  .btn-primary {
     grid-column: 1;
   }
 
