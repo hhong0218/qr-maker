@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR코드 만들기 무료 | 컬러 QR 로고 삽입 고화질 저장</title>
+  <meta name="description" content="무료로 QR코드를 만들고 PNG로 저장하세요. 컬러 QR, 로고 삽입, Wi-Fi QR, vCard QR 지원. 회원가입 불필요. 소상공인 필수 도구.">
+  <meta name="keywords" content="QR코드 만들기, QR코드 생성기, 무료 QR코드, 컬러 QR코드, QR 로고">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-icon">▣</span>
+        <h1>QR코드 만들기</h1>
+      </div>
+      <p class="tagline">소상공인·마케터를 위한 무료 QR 생성기</p>
+    </div>
+  </header>
+
+  <div class="ad-slot ad-header" aria-label="광고 영역">광고 영역</div>
+
+  <div class="tips-banner" aria-live="polite">
+    <div class="tips-track">
+      <p class="tip active">인쇄용 QR은 최소 2×2cm 이상으로 출력하세요</p>
+      <p class="tip">로고를 넣으려면 오류 수정 레벨을 H로 설정하세요</p>
+      <p class="tip">Wi-Fi QR을 만들면 비밀번호를 알려주지 않아도 됩니다</p>
+    </div>
+  </div>
+
+  <section class="presets-section container">
+    <h2 class="section-title">용도별 빠른 시작</h2>
+    <div class="preset-cards">
+      <button class="preset-card" data-preset="restaurant">
+        <span class="preset-emoji">🍽️</span>
+        <span class="preset-name">식당 메뉴판 QR</span>
+      </button>
+      <button class="preset-card" data-preset="cafe-wifi">
+        <span class="preset-emoji">📶</span>
+        <span class="preset-name">카페 Wi-Fi QR</span>
+      </button>
+      <button class="preset-card" data-preset="kakao">
+        <span class="preset-emoji">📱</span>
+        <span class="preset-name">카카오 채널 QR</span>
+      </button>
+      <button class="preset-card" data-preset="label">
+        <span class="preset-emoji">🏷️</span>
+        <span class="preset-name">제품 라벨 QR</span>
+      </button>
+      <button class="preset-card" data-preset="business-card">
+        <span class="preset-emoji">📇</span>
+        <span class="preset-name">명함 QR</span>
+      </button>
+      <button class="preset-card" data-preset="store">
+        <span class="preset-emoji">🛍️</span>
+        <span class="preset-name">스마트스토어 링크 QR</span>
+      </button>
+    </div>
+    <p class="preset-hint" id="preset-hint"></p>
+  </section>
+
+  <main class="main-layout container">
+    <aside class="settings-panel">
+      <div class="input-tabs" role="tablist">
+        <button class="tab-btn active" data-tab="url" role="tab" aria-selected="true">URL</button>
+        <button class="tab-btn" data-tab="text" role="tab">텍스트</button>
+        <button class="tab-btn" data-tab="vcard" role="tab">연락처</button>
+        <button class="tab-btn" data-tab="wifi" role="tab">Wi-Fi</button>
+        <button class="tab-btn" data-tab="sns" role="tab">SNS</button>
+      </div>
+
+      <div class="tab-panel active" id="panel-url" role="tabpanel">
+        <label class="field-label" for="url-input">웹사이트 URL</label>
+        <div class="url-input-wrap">
+          <span class="url-prefix">https://</span>
+          <input type="text" id="url-input" placeholder="example.com">
+        </div>
+        <label class="checkbox-label">
+          <input type="checkbox" id="short-url-check">
+          <span>단축 URL 사용</span>
+        </label>
+        <p class="field-hint hidden" id="short-url-notice">URL 단축 기능은 준비 중입니다</p>
+      </div>
+
+      <div class="tab-panel" id="panel-text" role="tabpanel">
+        <label class="field-label" for="text-input">텍스트 입력</label>
+        <textarea id="text-input" maxlength="500" rows="4" placeholder="QR코드에 담을 텍스트를 입력하세요"></textarea>
+        <span class="char-counter"><span id="text-count">0</span>/500</span>
+      </div>
+
+      <div class="tab-panel" id="panel-vcard" role="tabpanel">
+        <label class="field-label" for="vcard-name">이름</label>
+        <input type="text" id="vcard-name" placeholder="홍길동">
+        <label class="field-label" for="vcard-phone">전화번호</label>
+        <input type="tel" id="vcard-phone" placeholder="010-1234-5678">
+        <label class="field-label" for="vcard-email">이메일</label>
+        <input type="email" id="vcard-email" placeholder="email@example.com">
+        <label class="field-label" for="vcard-address">주소</label>
+        <input type="text" id="vcard-address" placeholder="서울시 강남구">
+        <label class="field-label" for="vcard-company">회사명</label>
+        <input type="text" id="vcard-company" placeholder="회사명">
+      </div>
+
+      <div class="tab-panel" id="panel-wifi" role="tabpanel">
+        <label class="field-label" for="wifi-ssid">네트워크명 (SSID)</label>
+        <input type="text" id="wifi-ssid" placeholder="Cafe_WiFi">
+        <label class="field-label" for="wifi-password">비밀번호</label>
+        <input type="text" id="wifi-password" placeholder="비밀번호">
+        <label class="field-label" for="wifi-security">보안 방식</label>
+        <select id="wifi-security">
+          <option value="WPA">WPA/WPA2</option>
+          <option value="WEP">WEP</option>
+          <option value="nopass">없음</option>
+        </select>
+      </div>
+
+      <div class="tab-panel" id="panel-sns" role="tabpanel">
+        <label class="field-label" for="sns-kakao"><span class="sns-icon kakao">💬</span>카카오 채널 링크</label>
+        <input type="url" id="sns-kakao" placeholder="https://pf.kakao.com/...">
+        <label class="field-label" for="sns-instagram"><span class="sns-icon instagram">📷</span>인스타그램 링크</label>
+        <input type="url" id="sns-instagram" placeholder="https://instagram.com/...">
+        <label class="field-label" for="sns-youtube"><span class="sns-icon youtube">▶</span>유튜브 링크</label>
+        <input type="url" id="sns-youtube" placeholder="https://youtube.com/...">
+        <label class="field-label" for="sns-naver"><span class="sns-icon naver">N</span>네이버 스마트스토어 링크</label>
+        <input type="url" id="sns-naver" placeholder="https://smartstore.naver.com/...">
+        <p class="field-hint">입력된 첫 번째 링크가 QR에 사용됩니다</p>
+      </div>
+
+      <div class="customize-section">
+        <h3 class="subsection-title">커스터마이징</h3>
+
+        <div class="option-group">
+          <label class="option-label">크기: <span id="size-value">300</span>px</label>
+          <input type="range" id="size-slider" min="100" max="1000" value="300" step="10">
+        </div>
+
+        <div class="option-group">
+          <label class="option-label">오류 수정 레벨</label>
+          <div class="ecc-buttons">
+            <button type="button" class="ecc-btn" data-ecc="L">L (7%)</button>
+            <button type="button" class="ecc-btn active" data-ecc="M">M (15%)</button>
+            <button type="button" class="ecc-btn" data-ecc="Q">Q (25%)</button>
+            <button type="button" class="ecc-btn" data-ecc="H">H (30%)</button>
+          </div>
+          <p class="ecc-guide" id="ecc-guide">M: 일반 사용 (기본 권장)</p>
+        </div>
+
+        <div class="option-group">
+          <label class="option-label">전경색 (QR 점 색상)</label>
+          <div class="color-controls">
+            <input type="color" id="fg-color" value="#000000">
+            <input type="text" id="fg-hex" class="hex-input" value="#000000" maxlength="7">
+          </div>
+          <div class="color-presets" id="fg-presets"></div>
+        </div>
+
+        <div class="option-group">
+          <label class="option-label">배경색</label>
+          <div class="color-controls">
+            <input type="color" id="bg-color" value="#ffffff">
+            <input type="text" id="bg-hex" class="hex-input" value="#FFFFFF" maxlength="7">
+          </div>
+          <label class="checkbox-label">
+            <input type="checkbox" id="transparent-bg">
+            <span>투명 배경 (PNG 저장 시)</span>
+          </label>
+          <div class="color-presets" id="bg-presets"></div>
+        </div>
+
+        <div class="option-group">
+          <label class="option-label">QR 점 모양</label>
+          <div class="shape-buttons">
+            <button type="button" class="shape-btn active" data-dot="square">기본 정사각형</button>
+            <button type="button" class="shape-btn" data-dot="rounded">둥근 사각형</button>
+            <button type="button" class="shape-btn" data-dot="circle">원형</button>
+          </div>
+        </div>
+
+        <div class="option-group">
+          <label class="option-label">모서리 패턴 (눈 모양)</label>
+          <div class="shape-buttons">
+            <button type="button" class="shape-btn active" data-corner="square">기본 사각형</button>
+            <button type="button" class="shape-btn" data-corner="rounded">둥근 모서리</button>
+            <button type="button" class="shape-btn" data-corner="circle">원형</button>
+          </div>
+        </div>
+
+        <div class="option-group">
+          <label class="option-label">로고/이미지 삽입</label>
+          <input type="file" id="logo-upload" class="file-input" accept="image/png,image/jpeg,image/jpg,image/svg+xml">
+          <p class="field-hint">PNG/JPG/SVG, 최대 2MB</p>
+          <div id="logo-options" class="hidden">
+            <label class="option-label">로고 크기: <span id="logo-size-value">20</span>%</label>
+            <input type="range" id="logo-size-slider" min="10" max="30" value="20" step="1">
+            <label class="option-label">로고 테두리</label>
+            <select id="logo-border">
+              <option value="none">없음</option>
+              <option value="padding">흰색 패딩</option>
+              <option value="circle">원형 클리핑</option>
+            </select>
+          </div>
+          <p class="field-hint logo-warning hidden" id="logo-warning">로고 삽입 시 오류 수정 레벨 H를 권장합니다</p>
+        </div>
+
+        <div class="option-group">
+          <label class="option-label">여백 (Quiet Zone): <span id="margin-value">2</span></label>
+          <input type="range" id="margin-slider" min="0" max="4" value="2" step="1">
+        </div>
+      </div>
+
+      <div class="ad-slot ad-panel" aria-label="광고 영역">광고 영역</div>
+
+      <section class="history-section">
+        <h3 class="subsection-title">최근 생성 QR</h3>
+        <ul class="history-list" id="history-list">
+          <li class="history-empty">아직 생성 기록이 없습니다</li>
+        </ul>
+      </section>
+    </aside>
+
+    <section class="preview-panel">
+      <h2 class="preview-title">미리보기</h2>
+      <div class="preview-wrapper">
+        <div id="hidden-qr" class="hidden" aria-hidden="true"></div>
+        <canvas id="qr-canvas" width="300" height="300"></canvas>
+        <div class="sns-badge hidden" id="sns-badge"></div>
+      </div>
+      <p class="scan-hint">
+        <span class="camera-icon">📷</span>
+        이 QR코드가 잘 읽히는지 확인하세요
+      </p>
+
+      <div class="export-buttons">
+        <button class="btn-primary" id="save-png">
+          <span class="free-badge">무료 저장</span>
+          PNG 저장
+        </button>
+        <button class="btn-primary" id="save-png-hd">PNG 저장 (고화질 x4)</button>
+        <button class="btn-secondary" id="save-svg">SVG 저장</button>
+        <button class="btn-secondary" id="copy-clipboard">클립보드 복사</button>
+      </div>
+
+      <p class="cross-link">
+        <a href="#" id="business-card-link">이 QR코드를 명함에 넣으려면? → 명함 제작기</a>
+      </p>
+    </section>
+  </main>
+
+  <div class="ad-slot ad-faq container" aria-label="광고 영역">광고 영역</div>
+
+  <section class="faq-section container">
+    <h2 class="section-title">자주 묻는 질문</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Q. QR코드란 무엇이고 어디에 쓰나요?</summary>
+        <p>QR코드(Quick Response Code)는 스마트폰 카메라로 빠르게 스캔하여 정보를 읽을 수 있는 2차원 바코드입니다. 웹사이트 URL, 연락처, Wi-Fi 접속 정보, 텍스트 메시지 등 다양한 데이터를 담을 수 있습니다. 식당 메뉴판, 명함, 제품 포장, 포스터, 전단지 등 오프라인 매체에서 디지털 콘텐츠로 연결하는 브릿지 역할을 합니다. 소상공인에게는 고객 유입, 정보 전달, 비접촉 서비스 제공에 매우 유용한 마케팅 도구입니다.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Q. 컬러 QR코드도 스캔이 되나요?</summary>
+        <p>네, 대부분의 최신 스마트폰은 컬러 QR코드를 정상적으로 인식합니다. 다만 전경색과 배경색 사이의 대비가 충분해야 합니다. 너무 밝은 색상 조합이나 유사한 색상끼리의 조합은 인식률이 떨어질 수 있으므로, 진한 전경색과 밝은 배경색 조합을 권장합니다. 카카오 노랑, 네이버 초록 등 브랜드 컬러를 사용할 때도 오류 수정 레벨을 H로 설정하면 안정적으로 스캔됩니다.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Q. 로고를 넣으면 QR코드가 안 읽힐 수 있나요?</summary>
+        <p>QR코드 중앙에 로고를 삽입하면 일부 데이터 영역이 가려져 스캔이 어려워질 수 있습니다. 이를 보완하기 위해 오류 수정 레벨(Error Correction Level)을 H(30%)로 설정하면 데이터의 30%가 손상되어도 복원이 가능합니다. 로고 크기는 QR 전체의 10~20% 이내로 유지하고, 흰색 패딩을 추가하면 인식률이 크게 향상됩니다. 본 도구에서는 로고 삽입 시 자동으로 H 레벨 사용을 안내합니다.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Q. 인쇄용 QR코드는 얼마나 크게 만들어야 하나요?</summary>
+        <p>인쇄물에서 QR코드가 안정적으로 스캔되려면 최소 2×2cm(약 0.8×0.8인치) 이상의 크기가 필요합니다. 명함이나 작은 라벨의 경우 2cm, 메뉴판이나 포스터의 경우 3~5cm를 권장합니다. 고화질 x4 PNG 저장 기능을 사용하면 인쇄 시 선명한 QR코드를 얻을 수 있습니다. 인쇄 후 반드시 실제 스마트폰으로 스캔 테스트를 진행하세요.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Q. Wi-Fi QR코드는 어떻게 사용하나요?</summary>
+        <p>Wi-Fi QR코드를 생성하면 고객이나 방문객이 QR코드를 스캔하는 것만으로 Wi-Fi 네트워크에 자동 연결할 수 있습니다. 비밀번호를 직접 알려주지 않아도 되어 보안과 편의성이 모두 향상됩니다. 카페, 식당, 사무실, 호텔 등 공용 Wi-Fi를 제공하는 장소에서 테이블 스탠드나 벽면에 부착하여 사용하세요. Android와 iOS 모두 기본 카메라 앱에서 Wi-Fi QR을 지원합니다.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Q. QR코드 유효기간이 있나요?</summary>
+        <p>QR코드 자체에는 유효기간이 없습니다. QR코드에 담긴 URL이나 정보가 유효한 한 언제든지 스캔하여 사용할 수 있습니다. 다만 URL QR코드의 경우 연결된 웹페이지가 삭제되거나 URL이 변경되면 더 이상 작동하지 않습니다. 장기간 사용할 QR코드는 안정적인 URL을 사용하고, 변경이 필요할 때는 새 QR코드를 생성하여 교체하세요. vCard나 Wi-Fi QR은 정보 변경 시 새로 생성해야 합니다.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 QR코드 만들기. 무료 QR코드 생성기.</p>
+      <a href="privacy.html">개인정보처리방침</a>
+    </div>
+  </footer>
+
+  <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
