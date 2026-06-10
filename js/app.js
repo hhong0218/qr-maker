@@ -79,6 +79,10 @@
     rotateTips();
     loadHistory();
     applyPresetDefaults();
+    if (typeof QRCode === 'undefined') {
+      showToast('QR 라이브러리를 불러오지 못했습니다. 네트워크 연결 확인 후 새로고침해주세요.');
+      return;
+    }
     scheduleRender();
   }
 
@@ -295,11 +299,11 @@
         return text || 'Hello, QR!';
       }
       case 'vcard': {
-        const name = $('#vcard-name').value.trim();
-        const phone = $('#vcard-phone').value.trim();
-        const email = $('#vcard-email').value.trim();
-        const address = $('#vcard-address').value.trim();
-        const company = $('#vcard-company').value.trim();
+        const name = escapeVCard($('#vcard-name').value.trim());
+        const phone = escapeVCard($('#vcard-phone').value.trim());
+        const email = escapeVCard($('#vcard-email').value.trim());
+        const address = escapeVCard($('#vcard-address').value.trim());
+        const company = escapeVCard($('#vcard-company').value.trim());
         let vcard = 'BEGIN:VCARD\nVERSION:3.0\n';
         if (name) vcard += 'FN:' + name + '\n';
         if (phone) vcard += 'TEL:' + phone + '\n';
@@ -343,12 +347,27 @@
     return str.replace(/[\\;,"]/g, '\\$&');
   }
 
+  // vCard 3.0 (RFC 2426): backslash, semicolon, comma must be escaped;
+  // newlines become a literal "\n" sequence.
+  function escapeVCard(str) {
+    return str
+      .replace(/\\/g, '\\\\')
+      .replace(/;/g, '\\;')
+      .replace(/,/g, '\\,')
+      .replace(/\r\n|\r|\n/g, '\\n');
+  }
+
   function scheduleRender() {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(renderQR, 300);
   }
 
   function generateMatrix(text) {
+    if (typeof QRCode === 'undefined') {
+      showToast('QR 라이브러리를 불러오지 못했습니다. 네트워크 연결 확인 후 새로고침해주세요.');
+      return null;
+    }
+
     const container = $('#hidden-qr');
     container.innerHTML = '';
 
@@ -540,9 +559,7 @@
     c.drawImage(logoImage, x, y, logoPixelSize, logoPixelSize);
     c.restore();
 
-    if (state.ecc !== 'H') {
-      $('#logo-warning').classList.remove('hidden');
-    }
+    $('#logo-warning').classList.toggle('hidden', state.ecc === 'H');
   }
 
   function renderQR() {
@@ -595,7 +612,11 @@
       img.onload = () => {
         state.logoImage = img;
         $('#logo-options').classList.remove('hidden');
-        $('#logo-warning').classList.remove('hidden');
+        if (state.ecc !== 'H') {
+          setOptions({ ecc: 'H' });
+          showToast('로고 삽입으로 오류 수정 레벨을 H로 변경했습니다');
+        }
+        $('#logo-warning').classList.add('hidden');
         scheduleRender();
       };
       img.src = ev.target.result;
@@ -634,7 +655,7 @@
     const fg = state.fgColor;
     const bg = state.transparentBg ? 'none' : state.bgColor;
 
-    let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${state.size}" height="${state.size}" viewBox="0 0 ${state.size} ${state.size}">`;
+    let svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${state.size}" height="${state.size}" viewBox="0 0 ${state.size} ${state.size}">`;
     if (!state.transparentBg) {
       svg += `<rect width="100%" height="100%" fill="${bg}"/>`;
     }
@@ -692,6 +713,28 @@
         svg += `<rect x="${fx + io}" y="${fy + io}" width="${inner}" height="${inner}" rx="${rx * 0.4}" fill="${fg}"/>`;
       }
     });
+
+    // Embed the logo just like the canvas path (drawLogoOn) does, so the
+    // cleared logo area is not left as an empty hole in the exported SVG.
+    if (state.logoImage) {
+      const logoPixelSize = state.size * (state.logoSizePercent / 100);
+      const lx = (state.size - logoPixelSize) / 2;
+      const ly = (state.size - logoPixelSize) / 2;
+
+      if (state.logoBorder === 'padding') {
+        const padding = logoPixelSize * 0.12;
+        svg += `<rect x="${lx - padding}" y="${ly - padding}" width="${logoPixelSize + padding * 2}" height="${logoPixelSize + padding * 2}" rx="${padding}" fill="#ffffff"/>`;
+      }
+
+      let clipAttr = '';
+      if (state.logoBorder === 'circle') {
+        svg += `<defs><clipPath id="qr-logo-clip"><circle cx="${lx + logoPixelSize / 2}" cy="${ly + logoPixelSize / 2}" r="${logoPixelSize / 2}"/></clipPath></defs>`;
+        clipAttr = ' clip-path="url(#qr-logo-clip)"';
+      }
+
+      const logoSrc = state.logoImage.src;
+      svg += `<image href="${logoSrc}" xlink:href="${logoSrc}" x="${lx}" y="${ly}" width="${logoPixelSize}" height="${logoPixelSize}" preserveAspectRatio="none"${clipAttr}/>`;
+    }
 
     svg += '</svg>';
 
@@ -756,8 +799,20 @@
         youtube: $('#sns-youtube').value,
         naver: $('#sns-naver').value
       },
-      thumb: canvas.toDataURL('image/png', 0.5)
+      thumb: createThumbnail()
     };
+  }
+
+  // PNG ignores the toDataURL quality argument, so storing the full-size
+  // canvas (up to 1000px) x10 entries can blow the localStorage quota.
+  // Downscale to a small 64px thumbnail instead.
+  function createThumbnail() {
+    const thumbCanvas = document.createElement('canvas');
+    thumbCanvas.width = 64;
+    thumbCanvas.height = 64;
+    const tctx = thumbCanvas.getContext('2d');
+    tctx.drawImage(canvas, 0, 0, 64, 64);
+    return thumbCanvas.toDataURL('image/png');
   }
 
   function saveToHistory() {
@@ -766,7 +821,17 @@
     history = history.filter((h) => h.content !== snapshot.content);
     history.unshift(snapshot);
     history = history.slice(0, 10);
-    localStorage.setItem('qr_history', JSON.stringify(history));
+
+    // If the quota is exceeded, drop the oldest entries and retry;
+    // if it still fails with nothing left to drop, skip silently.
+    while (history.length > 0) {
+      try {
+        localStorage.setItem('qr_history', JSON.stringify(history));
+        break;
+      } catch (err) {
+        history.pop();
+      }
+    }
     loadHistory();
   }
 
