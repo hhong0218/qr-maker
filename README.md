@@ -2,7 +2,7 @@
 
 소상공인·마케터를 위한 무료 한국어 QR코드 생성기입니다. 회원가입 없이 브라우저에서 바로 QR코드를 만들고 PNG/SVG로 저장할 수 있습니다.
 
-라이브: https://qr-maker.pages.dev
+라이브: https://qr-maker-8q3.pages.dev
 
 ## 기능
 
@@ -25,7 +25,7 @@
 `main` 브랜치에 push하면 GitHub Actions(`.github/workflows/deploy.yml`)가 Cloudflare Pages(`qr-maker` 프로젝트)로 자동 배포합니다.
 
 ```
-push to main → GitHub Actions → wrangler pages deploy → https://qr-maker.pages.dev
+push to main → GitHub Actions → wrangler pages deploy → https://qr-maker-8q3.pages.dev
 ```
 
 ## 파일 구성
