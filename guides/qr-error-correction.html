@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR코드가 인식 안 될 때 해결법 — 오류 보정 레벨과 크기·여백의 모든 것 | QR코드 만들기</title>
+  <meta name="description" content="QR코드가 안 찍히는 6가지 원인과 해결법. 오류 보정 레벨(L/M/Q/H)의 의미, 스캔 거리별 적정 크기, 여백(Quiet Zone) 규칙, 색상 대비까지 한 번에 정리했습니다.">
+  <link rel="canonical" href="https://qr-maker-8q3.pages.dev/guides/qr-error-correction">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qr-maker-8q3.pages.dev/guides/qr-error-correction">
+  <meta property="og:title" content="QR코드가 인식 안 될 때 해결법 — 오류 보정 레벨과 크기·여백의 모든 것">
+  <meta property="og:description" content="QR코드가 안 찍히는 6가지 원인과 해결법. 오류 보정 레벨, 적정 크기, 여백, 색상 대비 총정리.">
+  <meta property="og:image" content="https://qr-maker-8q3.pages.dev/og-image.png">
+  <meta property="og:locale" content="ko_KR">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "QR코드가 인식 안 될 때 해결법 — 오류 보정 레벨과 크기·여백의 모든 것",
+    "description": "QR코드가 인식되지 않는 6가지 원인과 해결법. 오류 보정 레벨(L/M/Q/H)의 의미와 선택 기준, 스캔 거리별 적정 크기, 여백(Quiet Zone) 규칙, 색상 대비를 정리했습니다.",
+    "inLanguage": "ko",
+    "datePublished": "2026-06-11",
+    "dateModified": "2026-06-11",
+    "image": "https://qr-maker-8q3.pages.dev/og-image.png",
+    "author": {
+      "@type": "Organization",
+      "name": "QR코드 만들기",
+      "url": "https://qr-maker-8q3.pages.dev/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "QR코드 만들기",
+      "url": "https://qr-maker-8q3.pages.dev/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://qr-maker-8q3.pages.dev/guides/qr-error-correction"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">▣</span>
+        <span class="logo-text">QR코드 만들기</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <a href="/" class="back-link">← QR코드 만들기로 돌아가기</a>
+    <h1>QR코드가 인식 안 될 때 해결법 — 오류 보정 레벨과 크기·여백의 모든 것</h1>
+    <p class="guide-meta">QR코드 만들기 가이드 · 2026년 6월 11일</p>
+
+    <p>공들여 만든 메뉴판 QR코드를 손님이 한참 비추다가 "안 찍히는데요"라고 말하는 순간만큼 난감한 일도 없습니다. QR코드 인식 실패는 운이 아니라 대부분 명확한 원인이 있습니다. 이 글에서는 인식 실패의 6가지 원인을 빈도순으로 짚고, QR코드의 숨은 안전장치인 오류 보정 레벨까지 원리부터 설명합니다.</p>
+
+    <h2>인식 실패의 6가지 원인</h2>
+    <ol>
+      <li><strong>색상 대비 부족</strong> — 가장 흔한 원인입니다. 스캐너는 밝은 영역과 어두운 영역의 차이로 코드를 읽습니다. 연한 회색 QR, 파스텔 배경 위의 노란 QR처럼 대비가 약한 조합은 화면에서는 보여도 카메라가 구분하지 못합니다.</li>
+      <li><strong>크기 과소</strong> — 명함 구석의 1cm짜리 QR코드는 일반적인 스캔 거리에서 모듈(점) 하나하나가 카메라 해상도보다 작아져 읽히지 않습니다.</li>
+      <li><strong>여백(Quiet Zone) 부족</strong> — QR코드 주변에 충분한 빈 공간이 없으면 스캐너가 코드의 경계를 찾지 못합니다. 디자인 욕심으로 테두리 장식을 코드에 바짝 붙이는 경우가 대표적입니다.</li>
+      <li><strong>로고가 너무 큼</strong> — 중앙 로고가 데이터 영역을 과도하게 가리면 오류 보정 한계를 넘어 복원이 불가능해집니다.</li>
+      <li><strong>인쇄 품질 문제</strong> — 잉크 번짐, 저해상도 출력으로 모듈 경계가 뭉개진 경우입니다. 작게 만든 이미지를 크게 확대 인쇄할 때 자주 발생합니다.</li>
+      <li><strong>설치 환경 문제</strong> — 컵·머그 같은 곡면 부착, 유광 코팅이나 아크릴의 빛 반사, 어두운 조명도 인식을 방해합니다.</li>
+    </ol>
+
+    <h2>오류 보정 레벨이란 무엇인가요?</h2>
+    <p>QR코드에는 리드-솔로몬(Reed-Solomon) 부호라는 수학적 복원 장치가 내장되어 있습니다. 데이터를 저장할 때 복구용 정보를 함께 기록해 두어, 코드의 일부가 가려지거나 손상되어도 원래 내용을 되살릴 수 있습니다. 얼마나 많은 손상까지 복원할지를 정하는 것이 오류 보정 레벨(Error Correction Level)이며 네 단계가 있습니다.</p>
+    <table>
+      <thead>
+        <tr><th>레벨</th><th>복원 가능 손상</th><th>권장 용도</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>L</td><td>약 7%</td><td>화면 표시 전용, 깨끗한 환경, 데이터가 긴 경우</td></tr>
+        <tr><td>M</td><td>약 15%</td><td>일반 인쇄물 (기본 권장)</td></tr>
+        <tr><td>Q</td><td>약 25%</td><td>야외, 오염·훼손 가능성이 있는 환경</td></tr>
+        <tr><td>H</td><td>약 30%</td><td>로고 삽입 시 필수, 가혹한 환경</td></tr>
+      </tbody>
+    </table>
+    <p>여기에는 트레이드오프가 있습니다. 레벨을 올리면 복구용 정보가 늘어나는 만큼 같은 내용이라도 모듈 수가 많아져 코드가 더 촘촘해집니다. 촘촘해진 코드는 같은 인쇄 크기에서 모듈 하나가 작아져 오히려 인식이 어려워질 수 있습니다. 그래서 "무조건 H"가 정답이 아니라, <strong>로고가 없고 환경이 깨끗하면 M, 로고를 넣거나 훼손 위험이 있으면 H</strong>가 합리적인 선택입니다. 본 서비스는 로고를 업로드하면 자동으로 H 레벨로 전환해 줍니다.</p>
+
+    <h2>로고 삽입 시 지켜야 할 비율</h2>
+    <p>H 레벨이 30%까지 복원한다고 해서 로고로 30%를 가려도 된다는 뜻은 아닙니다. 인쇄 오차, 조명, 카메라 품질 같은 현실의 손실도 같은 복원 여력을 나눠 쓰기 때문입니다. 안전한 기준은 <strong>로고가 전체 면적의 10~20%를 넘지 않는 것</strong>입니다. 로고 주위에 흰색 패딩을 두르면 로고와 모듈이 섞여 보이는 것을 막아 인식률이 더 올라갑니다. 본 서비스의 로고 테두리 옵션에서 "흰색 패딩"을 선택하면 됩니다.</p>
+
+    <h2>스캔 거리에 따른 적정 크기</h2>
+    <p>적정 크기는 "스캔 거리의 약 10분의 1"이라는 경험칙으로 계산합니다. 손님이 30cm 거리에서 찍는 테이블 QR이라면 3cm, 3m 거리에서 찍는 벽면 포스터라면 30cm가 필요합니다.</p>
+    <table>
+      <thead>
+        <tr><th>설치 위치</th><th>예상 스캔 거리</th><th>권장 크기</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>명함, 제품 라벨</td><td>10~20cm</td><td>2cm 이상</td></tr>
+        <tr><td>테이블 스탠드, 메뉴판</td><td>30~50cm</td><td>3~5cm</td></tr>
+        <tr><td>매장 포스터</td><td>1~2m</td><td>10~20cm</td></tr>
+        <tr><td>현수막, 쇼윈도</td><td>3m 이상</td><td>30cm 이상</td></tr>
+      </tbody>
+    </table>
+    <p>인쇄 시 해상도도 중요합니다. 300px로 만든 이미지를 20cm로 확대하면 모듈 경계가 흐려집니다. 큰 인쇄물에는 본 서비스의 "PNG 저장 (고화질 x4)" 또는 무한 확대가 가능한 SVG 저장을 사용하세요.</p>
+
+    <h2>여백(Quiet Zone) 규칙</h2>
+    <p>QR 표준은 코드 주변에 최소 모듈 4칸 너비의 빈 여백을 요구합니다. 이 여백은 스캐너가 "여기부터 코드"라고 인식하는 기준선입니다. 어두운 배경의 전단지에 QR코드를 넣을 때는 코드 주변에 밝은 영역을 충분히 남겨야 하며, 재단(커팅) 시 여백을 잘라내지 않도록 주의해야 합니다. 본 서비스에서는 여백 슬라이더(0~4)로 조절할 수 있으며 기본값 2, 인쇄물은 3~4를 권장합니다.</p>
+
+    <h2>색상 대비 규칙</h2>
+    <ul>
+      <li><strong>어두운 전경 + 밝은 배경</strong>이 원칙입니다. 검정·남색·진녹색 전경에 흰색·연한 배경 조합이 안전합니다.</li>
+      <li><strong>반전 금지.</strong> 밝은 모듈 + 어두운 배경(예: 검정 배경에 흰 QR)은 일부 스캐너에서 읽히지 않습니다.</li>
+      <li><strong>밝은 브랜드 컬러 배경(카카오 노랑 등)을 쓸 때</strong>는 전경을 충분히 어둡게 하고 오류 보정 레벨을 H로 올리세요.</li>
+      <li><strong>투명 배경 PNG</strong>는 어떤 색 위에 올라갈지 모르므로, 최종 부착 면이 밝은 색인지 반드시 확인하세요.</li>
+    </ul>
+
+    <h2>인쇄 전 최종 체크리스트</h2>
+    <ul>
+      <li>실제 인쇄 크기와 같은 크기로 출력해 테스트했는가</li>
+      <li>아이폰과 안드로이드 양쪽 기본 카메라로 스캔했는가</li>
+      <li>약간 어두운 조명, 비스듬한 각도에서도 시도했는가</li>
+      <li>로고 비율 20% 이하 + H 레벨인가</li>
+      <li>여백이 모듈 4칸 이상 확보되어 재단선에 걸리지 않는가</li>
+      <li>QR에 담긴 주소를 직접 열어 오타·만료 여부를 확인했는가</li>
+    </ul>
+    <p>이 여섯 가지만 통과하면 현장에서 "안 찍히는" 일은 거의 사라집니다.</p>
+
+    <div class="guide-cta">
+      <p>오류 보정 레벨과 여백을 직접 조절하면서 만들어 보세요. 미리보기로 바로 스캔 테스트할 수 있습니다.</p>
+      <a href="/" class="btn-cta">무료로 QR코드 만들기</a>
+    </div>
+
+    <section class="guide-related">
+      <h2>함께 읽으면 좋은 가이드</h2>
+      <ul>
+        <li><a href="/guides/wifi-qr">매장 와이파이 QR코드 만들기 완벽 가이드</a> — 단계별 제작법과 보안·인쇄 팁</li>
+        <li><a href="/guides/qr-marketing">소상공인을 위한 QR코드 마케팅 활용법 7가지</a> — 잘 찍히는 QR를 어디에 쓸지 고민된다면</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="활용 가이드">
+        <span class="footer-nav-title">활용 가이드</span>
+        <a href="/guides/wifi-qr">매장 와이파이 QR코드 만들기</a>
+        <a href="/guides/qr-marketing">QR코드 마케팅 활용법 7가지</a>
+        <a href="/guides/qr-error-correction">QR코드 인식 문제 해결법</a>
+      </nav>
+      <nav class="footer-nav" aria-label="사이트 정보">
+        <a href="/about">사이트 소개</a>
+        <a href="/terms">이용약관</a>
+        <a href="/privacy">개인정보처리방침</a>
+      </nav>
+      <p>&copy; 2026 QR코드 만들기. 무료 QR코드 생성기.</p>
+    </div>
+  </footer>
+</body>
+</html>

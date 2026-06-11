@@ -32,10 +32,14 @@ push to main → GitHub Actions → wrangler pages deploy → https://qr-maker-8
 
 ```
 index.html      메인 앱 (생성기 + FAQ + 구조화 데이터)
+about.html      사이트 소개
 privacy.html    개인정보처리방침
+terms.html      이용약관
+guides/         한국어 활용 가이드 3편 (와이파이 QR / QR 마케팅 / 인식 문제 해결)
 css/style.css   전체 스타일
 js/app.js       앱 로직 (생성/커스터마이징/내보내기/히스토리)
 favicon.svg     파비콘
+og-image.png    소셜 공유 이미지 (1200×630)
 sitemap.xml     사이트맵
 robots.txt      크롤러 정책
 ```

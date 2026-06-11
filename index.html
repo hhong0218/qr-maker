@@ -15,9 +15,14 @@
   <meta property="og:description" content="무료로 QR코드를 만들고 PNG로 저장하세요. 컬러 QR, 로고 삽입, Wi-Fi QR, vCard QR 지원. 회원가입 불필요. 소상공인 필수 도구.">
   <meta property="og:site_name" content="QR코드 만들기">
   <meta property="og:locale" content="ko_KR">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://qr-maker-8q3.pages.dev/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="QR코드 만들기 - 회원가입 없는 무료 QR코드 생성기">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="QR코드 만들기 무료 | 컬러 QR 로고 삽입 고화질 저장">
   <meta name="twitter:description" content="무료로 QR코드를 만들고 PNG로 저장하세요. 컬러 QR, 로고 삽입, Wi-Fi QR, vCard QR 지원. 회원가입 불필요.">
+  <meta name="twitter:image" content="https://qr-maker-8q3.pages.dev/og-image.png">
 
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
@@ -108,8 +113,6 @@
     </div>
   </header>
 
-  <div class="ad-slot ad-header" aria-label="광고 영역">광고 영역</div>
-
   <div class="tips-banner" aria-live="polite">
     <div class="tips-track">
       <p class="tip active">인쇄용 QR은 최소 2×2cm 이상으로 출력하세요</p>
@@ -165,11 +168,7 @@
           <span class="url-prefix">https://</span>
           <input type="text" id="url-input" placeholder="example.com">
         </div>
-        <label class="checkbox-label">
-          <input type="checkbox" id="short-url-check">
-          <span>단축 URL 사용</span>
-        </label>
-        <p class="field-hint hidden" id="short-url-notice">URL 단축 기능은 준비 중입니다</p>
+        <p class="field-hint">주소를 입력하면 QR코드가 자동으로 갱신됩니다</p>
       </div>
 
       <div class="tab-panel" id="panel-text" role="tabpanel">
@@ -298,8 +297,6 @@
         </div>
       </div>
 
-      <div class="ad-slot ad-panel" aria-label="광고 영역">광고 영역</div>
-
       <section class="history-section">
         <h3 class="subsection-title">최근 생성 QR</h3>
         <ul class="history-list" id="history-list">
@@ -329,14 +326,8 @@
         <button class="btn-secondary" id="save-svg">SVG 저장</button>
         <button class="btn-secondary" id="copy-clipboard">클립보드 복사</button>
       </div>
-
-      <p class="cross-link">
-        <a href="#" id="business-card-link">이 QR코드를 명함에 넣으려면? → 명함 제작기</a>
-      </p>
     </section>
   </main>
-
-  <div class="ad-slot ad-faq container" aria-label="광고 영역">광고 영역</div>
 
   <section class="faq-section container">
     <h2 class="section-title">자주 묻는 질문</h2>
@@ -370,8 +361,18 @@
 
   <footer class="site-footer">
     <div class="container">
+      <nav class="footer-nav" aria-label="활용 가이드">
+        <span class="footer-nav-title">활용 가이드</span>
+        <a href="/guides/wifi-qr">매장 와이파이 QR코드 만들기</a>
+        <a href="/guides/qr-marketing">QR코드 마케팅 활용법 7가지</a>
+        <a href="/guides/qr-error-correction">QR코드 인식 문제 해결법</a>
+      </nav>
+      <nav class="footer-nav" aria-label="사이트 정보">
+        <a href="/about">사이트 소개</a>
+        <a href="/terms">이용약관</a>
+        <a href="/privacy">개인정보처리방침</a>
+      </nav>
       <p>&copy; 2026 QR코드 만들기. 무료 QR코드 생성기.</p>
-      <a href="privacy.html">개인정보처리방침</a>
     </div>
   </footer>
 

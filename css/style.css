@@ -73,31 +73,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Ad slots */
-.ad-slot {
-  background: #f1f5f9;
-  border: 1px dashed #cbd5e1;
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  padding: 12px;
-}
-
-.ad-header {
-  margin: 0;
-}
-
-.ad-panel {
-  margin: 20px 0;
-  border-radius: var(--radius-sm);
-}
-
-.ad-faq {
-  margin: 40px auto 0;
-  max-width: 1280px;
-  padding: 12px 20px;
-}
-
 /* Tips banner */
 .tips-banner {
   background: linear-gradient(135deg, #dbeafe, #e0e7ff);
@@ -542,20 +517,6 @@ input[type="color"] {
   padding: 8px 0;
 }
 
-.cross-link {
-  margin-top: 16px;
-  font-size: 0.85rem;
-}
-
-.cross-link a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-.cross-link a:hover {
-  text-decoration: underline;
-}
-
 /* Preview */
 .preview-title {
   font-size: 1.1rem;
@@ -704,7 +665,7 @@ input[type="color"] {
 .site-footer {
   background: var(--surface);
   border-top: 1px solid var(--border);
-  padding: 24px 0;
+  padding: 28px 0;
   text-align: center;
 }
 
@@ -722,6 +683,164 @@ input[type="color"] {
 
 .site-footer nav a:hover {
   text-decoration: underline;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 20px;
+  margin-bottom: 12px;
+}
+
+.footer-nav-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.footer-nav a {
+  padding: 4px 0;
+}
+
+/* Content pages (guides & legal) */
+a.logo {
+  text-decoration: none;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+.page-content h1 {
+  font-size: 1.75rem;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.page-content .updated,
+.page-content .guide-meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 32px;
+}
+
+.page-content h2 {
+  font-size: 1.2rem;
+  margin: 32px 0 12px;
+  color: var(--primary);
+}
+
+.page-content h3 {
+  font-size: 1.05rem;
+  margin: 24px 0 10px;
+  color: var(--text);
+}
+
+.page-content p,
+.page-content li {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.page-content ul,
+.page-content ol {
+  padding-left: 22px;
+  margin-bottom: 16px;
+}
+
+.page-content li {
+  margin-bottom: 6px;
+}
+
+.page-content a {
+  color: var(--primary);
+}
+
+.page-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 0.9rem;
+}
+
+.page-content th,
+.page-content td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  color: var(--text-muted);
+}
+
+.page-content th {
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.guide-cta {
+  margin: 40px 0 8px;
+  padding: 28px 24px;
+  background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.guide-cta p {
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.guide-cta .btn-cta {
+  display: inline-block;
+  min-height: 44px;
+  padding: 12px 28px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.guide-cta .btn-cta:hover {
+  background: var(--primary-dark);
+}
+
+.guide-related {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.guide-related h2 {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin: 0 0 12px;
 }
 
 /* Hidden QR container */
@@ -783,17 +902,77 @@ input[type="color"] {
   }
 }
 
+@media (max-width: 640px) {
+  /* iOS Safari는 입력 폰트가 16px 미만이면 포커스 시 자동 줌됨 */
+  input[type="text"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="email"],
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  .url-prefix {
+    font-size: 16px;
+  }
+
+  /* 터치 타깃 최소 44×44px */
+  .tab-btn,
+  .ecc-btn,
+  .shape-btn,
+  .preset-card,
+  .btn-primary,
+  .btn-secondary {
+    min-height: 44px;
+  }
+
+  .color-preset {
+    width: 44px;
+    height: 44px;
+  }
+
+  input[type="color"] {
+    width: 52px;
+    height: 44px;
+  }
+
+  .checkbox-label input {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* 좁은 화면에서 팁 문구가 두 줄이 되어도 잘리지 않도록 */
+  .tips-track {
+    height: 48px;
+  }
+
+  .tip {
+    font-size: 0.85rem;
+  }
+
+  .settings-panel,
+  .preview-panel {
+    padding: 18px 16px;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
 @media (max-width: 480px) {
   .preset-cards {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .input-tabs {
-    gap: 2px;
+    gap: 4px;
   }
 
   .tab-btn {
-    font-size: 0.75rem;
-    padding: 8px 4px;
+    font-size: 0.8rem;
+    padding: 10px 4px;
   }
 }

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>매장 와이파이 QR코드 만들기 완벽 가이드 | QR코드 만들기</title>
+  <meta name="description" content="카페·식당 사장님을 위한 와이파이 QR코드 제작 가이드. 5분 만에 만드는 단계별 방법, 게스트 네트워크 보안 팁, 코팅·위치 선정 등 인쇄 노하우까지 정리했습니다.">
+  <link rel="canonical" href="https://qr-maker-8q3.pages.dev/guides/wifi-qr">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qr-maker-8q3.pages.dev/guides/wifi-qr">
+  <meta property="og:title" content="매장 와이파이 QR코드 만들기 완벽 가이드">
+  <meta property="og:description" content="카페·식당 사장님을 위한 와이파이 QR코드 제작 가이드. 단계별 방법부터 보안·인쇄 팁까지.">
+  <meta property="og:image" content="https://qr-maker-8q3.pages.dev/og-image.png">
+  <meta property="og:locale" content="ko_KR">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "매장 와이파이 QR코드 만들기 완벽 가이드",
+    "description": "카페·식당 사장님을 위한 와이파이 QR코드 제작 가이드. 단계별 제작 방법, 게스트 네트워크 보안 팁, 인쇄 노하우를 정리했습니다.",
+    "inLanguage": "ko",
+    "datePublished": "2026-06-11",
+    "dateModified": "2026-06-11",
+    "image": "https://qr-maker-8q3.pages.dev/og-image.png",
+    "author": {
+      "@type": "Organization",
+      "name": "QR코드 만들기",
+      "url": "https://qr-maker-8q3.pages.dev/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "QR코드 만들기",
+      "url": "https://qr-maker-8q3.pages.dev/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://qr-maker-8q3.pages.dev/guides/wifi-qr"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">▣</span>
+        <span class="logo-text">QR코드 만들기</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <a href="/" class="back-link">← QR코드 만들기로 돌아가기</a>
+    <h1>매장 와이파이 QR코드 만들기 완벽 가이드</h1>
+    <p class="guide-meta">QR코드 만들기 가이드 · 2026년 6월 11일</p>
+
+    <p>"사장님, 와이파이 비밀번호 뭐예요?" 카페나 식당을 운영한다면 하루에도 몇 번씩 듣는 질문입니다. 계산대 옆에 비밀번호를 써 붙여도 손님은 긴 영문·숫자 조합을 한 글자씩 옮겨 적다가 틀리기 일쑤고, 직원은 같은 안내를 반복하게 됩니다. 와이파이 QR코드 하나면 이 모든 과정이 사라집니다. 손님은 스마트폰 카메라로 테이블 위 QR코드를 비추기만 하면 비밀번호 입력 없이 곧바로 매장 와이파이에 연결됩니다.</p>
+
+    <h2>와이파이 QR코드는 어떻게 동작하나요?</h2>
+    <p>와이파이 QR코드에는 국제적으로 통용되는 표준 형식의 텍스트가 담깁니다. 네트워크 이름(SSID), 보안 방식(WPA/WPA2 등), 비밀번호 세 가지 정보를 정해진 규칙대로 나열한 것입니다. iOS 11 이상의 아이폰과 안드로이드 10 이상의 스마트폰은 기본 카메라 앱만으로 이 형식을 인식해 "이 네트워크에 연결할까요?"라는 알림을 띄워 줍니다. 별도 앱 설치가 전혀 필요 없습니다.</p>
+    <p>중요한 점은 이 QR코드가 <strong>한 번 만들면 영구적으로 동작하는 정적 QR</strong>이라는 것입니다. 외부 서버를 거치지 않고 QR코드 자체에 접속 정보가 담겨 있기 때문에, 유효기간이나 스캔 횟수 제한 없이 계속 사용할 수 있습니다. 단, 비밀번호를 바꾸면 QR코드도 새로 만들어 교체해야 합니다.</p>
+
+    <h2>5분 만에 만드는 단계별 방법</h2>
+    <ol>
+      <li><strong>Wi-Fi 탭 선택</strong> — <a href="/">QR코드 만들기</a> 첫 화면에서 "카페 Wi-Fi QR" 프리셋을 누르거나 입력 탭에서 "Wi-Fi"를 선택합니다. 프리셋을 사용하면 매장용으로 적절한 크기(400px)와 여백이 자동 적용됩니다.</li>
+      <li><strong>네트워크 이름(SSID) 입력</strong> — 공유기에 설정된 이름을 정확히 입력합니다. 대소문자와 띄어쓰기까지 완전히 같아야 합니다. 스마트폰 와이파이 설정 화면에 보이는 이름을 그대로 옮겨 적는 것이 가장 확실합니다.</li>
+      <li><strong>보안 방식 선택</strong> — 대부분의 매장 공유기는 WPA/WPA2 방식입니다. 잘 모르겠다면 WPA/WPA2를 선택하세요. 비밀번호가 없는 개방 네트워크라면 "없음"을 선택합니다.</li>
+      <li><strong>비밀번호 입력</strong> — 한 글자라도 틀리면 연결에 실패하므로 입력 후 한 번 더 확인합니다. 입력한 비밀번호는 서버로 전송되지 않고 브라우저 안에서만 처리되므로 유출 걱정 없이 사용할 수 있습니다.</li>
+      <li><strong>스캔 테스트</strong> — 미리보기에 나타난 QR코드를 본인 스마트폰 카메라로 비춰 실제로 연결되는지 확인합니다. 가능하면 아이폰과 안드로이드 양쪽에서 테스트하세요.</li>
+      <li><strong>고화질 저장</strong> — 인쇄해서 사용할 것이므로 일반 PNG보다 "PNG 저장 (고화질 x4)"를 권장합니다. 4배 해상도로 저장되어 A4 크기로 키워도 가장자리가 선명합니다.</li>
+    </ol>
+
+    <h2>사장님이 꼭 알아야 할 보안 팁</h2>
+    <ul>
+      <li><strong>게스트 네트워크를 분리하세요.</strong> 손님용 와이파이와 포스기·CCTV가 연결된 업무용 네트워크는 반드시 분리하는 것이 안전합니다. 대부분의 공유기는 관리자 페이지에서 "게스트 네트워크" 기능을 켤 수 있습니다. QR코드는 게스트 네트워크용으로만 만드는 것을 권장합니다.</li>
+      <li><strong>WEP 방식은 피하세요.</strong> 오래된 보안 방식인 WEP는 몇 분 만에 뚫릴 수 있습니다. 공유기가 WEP만 지원한다면 교체를 고려할 때입니다.</li>
+      <li><strong>비밀번호를 바꾸면 QR코드도 교체하세요.</strong> 비밀번호를 주기적으로 변경하는 매장이라면, 변경 즉시 새 QR코드를 만들어 기존 인쇄물을 교체해야 합니다. 옛날 QR코드가 남아 있으면 "연결이 안 된다"는 항의를 받게 됩니다.</li>
+      <li><strong>외부에서 보이는 위치는 피하세요.</strong> 통유리 매장에서 QR코드를 출입문 바깥쪽을 향해 붙이면 매장 밖에서도 와이파이에 접속할 수 있게 됩니다. 테이블 위, 계산대 옆 등 매장 내부에서만 보이는 위치가 적절합니다.</li>
+    </ul>
+
+    <h2>인쇄할 때 실패하지 않는 팁</h2>
+    <ul>
+      <li><strong>크기는 최소 3×3cm.</strong> 테이블 스탠드나 벽면 부착용은 3~5cm가 적당합니다. 손님이 30cm 이상 떨어져 스캔하는 위치라면 더 크게 인쇄하세요. 스캔 거리의 약 10분의 1이 적정 크기입니다.</li>
+      <li><strong>전경색과 배경색의 대비를 유지하세요.</strong> 매장 인테리어에 맞춰 색을 바꾸더라도 어두운 전경 + 밝은 배경 조합을 지켜야 합니다. 자세한 내용은 <a href="/guides/qr-error-correction">QR코드 인식 문제 해결 가이드</a>를 참고하세요.</li>
+      <li><strong>여백(Quiet Zone)을 자르지 마세요.</strong> QR코드 주변의 흰 여백은 장식이 아니라 스캐너가 코드의 시작과 끝을 인식하는 데 필요한 영역입니다. 재단 시 여백까지 바짝 자르면 인식률이 떨어집니다.</li>
+      <li><strong>코팅 또는 아크릴 스탠드를 사용하세요.</strong> 물 컵이 오가는 테이블에서는 종이가 금방 손상됩니다. 코팅지나 아크릴 스탠드에 넣으면 오래 쓸 수 있습니다. 다만 빛이 강한 자리에서는 코팅 표면 반사로 인식이 안 될 수 있으니 무광 코팅이 좋습니다.</li>
+      <li><strong>"와이파이 무료"라는 안내 문구를 함께 넣으세요.</strong> QR코드만 덩그러니 있으면 손님은 그것이 무엇인지 모릅니다. "카메라로 비추면 와이파이에 바로 연결됩니다" 같은 한 줄 안내가 사용률을 크게 높입니다.</li>
+    </ul>
+
+    <h2>자주 묻는 질문</h2>
+    <h3>아이폰에서도 되나요?</h3>
+    <p>네. iOS 11(2017년) 이상이면 기본 카메라 앱으로 와이파이 QR코드를 인식합니다. 카메라를 비추면 상단에 연결 알림이 나타나고, 누르면 바로 연결됩니다.</p>
+    <h3>손님이 비밀번호를 알아낼 수 있나요?</h3>
+    <p>QR코드에는 비밀번호가 평문으로 담겨 있어 전용 앱을 쓰면 내용을 읽을 수는 있습니다. 와이파이 QR코드는 "비밀번호를 숨기는 보안 장치"가 아니라 "입력을 편하게 해 주는 도구"입니다. 그래서 게스트 네트워크 분리가 중요합니다.</p>
+    <h3>공유기를 바꾸면 어떻게 하나요?</h3>
+    <p>새 공유기의 SSID와 비밀번호를 기존과 동일하게 설정하면 QR코드를 그대로 쓸 수 있습니다. 다르게 설정했다면 새로 만들어야 합니다.</p>
+
+    <div class="guide-cta">
+      <p>지금 바로 우리 매장 와이파이 QR코드를 만들어 보세요. 회원가입 없이 1분이면 충분합니다.</p>
+      <a href="/" class="btn-cta">무료로 와이파이 QR 만들기</a>
+    </div>
+
+    <section class="guide-related">
+      <h2>함께 읽으면 좋은 가이드</h2>
+      <ul>
+        <li><a href="/guides/qr-marketing">소상공인을 위한 QR코드 마케팅 활용법 7가지</a> — 와이파이 다음은 메뉴판과 리뷰 유도입니다</li>
+        <li><a href="/guides/qr-error-correction">QR코드가 인식 안 될 때 해결법</a> — 인쇄 전 꼭 확인해야 할 오류 보정·크기·여백</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="활용 가이드">
+        <span class="footer-nav-title">활용 가이드</span>
+        <a href="/guides/wifi-qr">매장 와이파이 QR코드 만들기</a>
+        <a href="/guides/qr-marketing">QR코드 마케팅 활용법 7가지</a>
+        <a href="/guides/qr-error-correction">QR코드 인식 문제 해결법</a>
+      </nav>
+      <nav class="footer-nav" aria-label="사이트 정보">
+        <a href="/about">사이트 소개</a>
+        <a href="/terms">이용약관</a>
+        <a href="/privacy">개인정보처리방침</a>
+      </nav>
+      <p>&copy; 2026 QR코드 만들기. 무료 QR코드 생성기.</p>
+    </div>
+  </footer>
+</body>
+</html>

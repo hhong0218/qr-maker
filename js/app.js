@@ -131,8 +131,12 @@
       $('#text-count').textContent = e.target.value.length;
     });
 
-    $('#short-url-check').addEventListener('change', (e) => {
-      $('#short-url-notice').classList.toggle('hidden', !e.target.checked);
+    // 사용자가 프로토콜까지 직접 입력하면 장식용 https:// 프리픽스를 숨겨
+    // "https://https://..."로 이중 표시되는 것을 방지한다.
+    // (QR 데이터 자체는 getQRContent에서 프로토콜 유무를 검사하므로 중복되지 않음)
+    $('#url-input').addEventListener('input', (e) => {
+      const prefix = $('.url-prefix');
+      if (prefix) prefix.classList.toggle('hidden', /^https?:\/\//i.test(e.target.value.trim()));
     });
 
     $('#size-slider').addEventListener('input', (e) => {
@@ -251,11 +255,6 @@
     $('#save-png-hd').addEventListener('click', () => exportPNG(4));
     $('#save-svg').addEventListener('click', exportSVG);
     $('#copy-clipboard').addEventListener('click', copyToClipboard);
-
-    $('#business-card-link').addEventListener('click', (e) => {
-      e.preventDefault();
-      showToast('명함 제작기는 준비 중입니다. 곧 연결됩니다!');
-    });
   }
 
   function switchTab(tab) {
