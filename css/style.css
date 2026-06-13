@@ -976,3 +976,29 @@ a.logo {
     padding: 10px 4px;
   }
 }
+
+/* Intro / longtail content section (homepage) */
+.intro-section {
+  padding: 8px 20px 16px;
+}
+
+.intro-section h2 {
+  font-size: 1.15rem;
+  margin: 28px 0 10px;
+  color: var(--primary);
+}
+
+.intro-section h2:first-child {
+  margin-top: 0;
+}
+
+.intro-section p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.intro-section a {
+  color: var(--primary);
+}

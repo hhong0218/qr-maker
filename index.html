@@ -317,7 +317,7 @@
       <h2 class="preview-title">미리보기</h2>
       <div class="preview-wrapper">
         <div id="hidden-qr" class="hidden" aria-hidden="true"></div>
-        <canvas id="qr-canvas" width="300" height="300"></canvas>
+        <canvas id="qr-canvas" width="300" height="300" role="img" aria-label="생성된 QR코드 미리보기"></canvas>
         <div class="sns-badge hidden" id="sns-badge"></div>
       </div>
       <p class="scan-hint">
@@ -336,6 +336,17 @@
       </div>
     </section>
   </main>
+
+  <section class="intro-section container">
+    <h2>식당 메뉴판 QR코드 무료로 만드는 법</h2>
+    <p>종이 메뉴판을 다시 인쇄하지 않아도 가격과 메뉴를 바꿀 수 있습니다. 네이버 플레이스나 자체 메뉴 페이지 주소를 URL 탭에 넣으면 메뉴판으로 연결되는 QR코드가 곧바로 만들어집니다. 위에서 "식당 메뉴판 QR" 프리셋을 누르면 테이블에 붙이기 좋은 크기와 여백이 자동으로 잡힙니다. 메뉴가 자주 바뀌는 카페나 시세가 움직이는 횟집·고깃집에서 특히 잘 맞습니다. 활용 사례가 더 궁금하다면 <a href="/guides/qr-marketing">소상공인을 위한 QR코드 마케팅 활용법 7가지</a>에서 메뉴판 외 6가지 방법을 확인할 수 있습니다.</p>
+
+    <h2>카페 와이파이 QR코드·카카오 채널 QR 만들기</h2>
+    <p>"와이파이 비밀번호가 뭐예요?"라는 질문은 와이파이 QR코드 하나로 사라집니다. Wi-Fi 탭에서 네트워크 이름(SSID)과 비밀번호를 입력하면 손님이 카메라를 비추는 것만으로 비밀번호 입력 없이 매장 와이파이에 연결됩니다. 입력한 비밀번호는 서버로 전송되지 않고 브라우저 안에서만 처리됩니다. 단골을 만드는 카카오톡 채널 친구 모으기에는 SNS 탭에 채널 홈 주소(pf.kakao.com)를 넣어 카카오 채널 QR을 만드세요. 제작과 보안·인쇄 팁은 <a href="/guides/wifi-qr">매장 와이파이 QR코드 만들기 완벽 가이드</a>에 단계별로 정리해 두었습니다.</p>
+
+    <h2>인쇄용 고화질 QR코드(PNG·SVG) 저장</h2>
+    <p>인쇄물에서 QR코드가 흐릿하게 나오면 스캔이 되지 않습니다. 메뉴판이나 포스터처럼 크게 출력할 때는 일반 PNG 대신 "PNG 저장 (고화질 x4)"를 쓰거나, 아무리 키워도 깨지지 않는 벡터 SVG로 저장하세요. 색상을 매장 분위기에 맞게 바꾸더라도 어두운 전경과 밝은 배경의 대비는 지켜야 합니다. 인쇄 전 안 찍히는 문제가 걱정된다면 <a href="/guides/qr-error-correction">QR코드가 인식 안 될 때 해결법</a>에서 오류 보정 레벨과 적정 크기·여백 규칙을 확인해 보세요.</p>
+  </section>
 
   <section class="faq-section container">
     <h2 class="section-title">자주 묻는 질문</h2>
@@ -379,6 +390,14 @@
         <a href="/about">사이트 소개</a>
         <a href="/terms">이용약관</a>
         <a href="/privacy">개인정보처리방침</a>
+      </nav>
+      <nav class="footer-nav" aria-label="함께 쓰면 좋은 도구">
+        <span class="footer-nav-title">함께 쓰면 좋은 도구</span>
+        <a href="https://pixel-art-maker-dsq.pages.dev" rel="noopener">도트 그림 그리는 픽셀아트 메이커</a>
+        <a href="https://resume-maker-4u5.pages.dev" rel="noopener">무료 이력서 만들기</a>
+        <a href="https://diagram-maker.pages.dev" rel="noopener">순서도·다이어그램 메이커</a>
+        <a href="https://stockcoincalc.pages.dev" rel="noopener">주식·코인 수익 계산기</a>
+        <a href="https://agihanki-calculator.pages.dev" rel="noopener">아기 이유식 계산기</a>
       </nav>
       <p>&copy; 2026 QR코드 만들기. 무료 QR코드 생성기.</p>
     </div>
