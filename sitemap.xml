@@ -13,6 +13,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://qr-maker-8q3.pages.dev/guides/qr-code-howto</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://qr-maker-8q3.pages.dev/guides/wifi-qr</loc>
     <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
