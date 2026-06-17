@@ -73,6 +73,24 @@ body {
   font-size: 0.9rem;
 }
 
+.lang-switch {
+  margin-left: auto;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.lang-switch:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
 /* Tips banner */
 .tips-banner {
   background: linear-gradient(135deg, #dbeafe, #e0e7ff);

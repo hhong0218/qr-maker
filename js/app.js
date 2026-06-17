@@ -1,34 +1,109 @@
 (function () {
   'use strict';
 
-  const FG_PRESETS = [
-    { name: '검정', color: '#000000' },
-    { name: '남색', color: '#1e3a5f' },
-    { name: '빨강', color: '#dc2626' },
-    { name: '초록', color: '#16a34a' },
-    { name: '보라', color: '#7c3aed' },
-    { name: '주황', color: '#ea580c' },
-    { name: '카카오노랑', color: '#FEE500' },
-    { name: '네이버', color: '#03C75A' }
-  ];
+  // 언어 감지: <html lang="en"> (즉 /en/ 페이지)이면 영어, 그 외에는 한국어.
+  // 경로에 /en/ 이 포함된 경우도 영어로 처리(안전망).
+  const IS_EN = (document.documentElement.lang || '').toLowerCase().startsWith('en') ||
+    /\/en(\/|$)/.test(location.pathname);
 
-  const BG_PRESETS = [
-    { name: '흰색', color: '#ffffff' },
-    { name: '베이지', color: '#f5f0e8' },
-    { name: '하늘', color: '#e0f2fe' },
-    { name: '연두', color: '#ecfccb' },
-    { name: '연노랑', color: '#fef9c3' },
-    { name: '연분홍', color: '#fce7f3' },
-    { name: '연회색', color: '#f1f5f9' },
-    { name: '민트', color: '#ccfbf1' }
-  ];
-
-  const ECC_GUIDES = {
-    L: 'L: 깨끗한 환경, 로고 없을 때',
-    M: 'M: 일반 사용 (기본 권장)',
-    Q: 'Q: 중간 수준의 오류 복구',
-    H: 'H: 로고 삽입 시 필수'
+  const I18N = {
+    ko: {
+      fgPresets: [
+        { name: '검정', color: '#000000' },
+        { name: '남색', color: '#1e3a5f' },
+        { name: '빨강', color: '#dc2626' },
+        { name: '초록', color: '#16a34a' },
+        { name: '보라', color: '#7c3aed' },
+        { name: '주황', color: '#ea580c' },
+        { name: '카카오노랑', color: '#FEE500' },
+        { name: '네이버', color: '#03C75A' }
+      ],
+      bgPresets: [
+        { name: '흰색', color: '#ffffff' },
+        { name: '베이지', color: '#f5f0e8' },
+        { name: '하늘', color: '#e0f2fe' },
+        { name: '연두', color: '#ecfccb' },
+        { name: '연노랑', color: '#fef9c3' },
+        { name: '연분홍', color: '#fce7f3' },
+        { name: '연회색', color: '#f1f5f9' },
+        { name: '민트', color: '#ccfbf1' }
+      ],
+      eccGuides: {
+        L: 'L: 깨끗한 환경, 로고 없을 때',
+        M: 'M: 일반 사용 (기본 권장)',
+        Q: 'Q: 중간 수준의 오류 복구',
+        H: 'H: 로고 삽입 시 필수'
+      },
+      libError: 'QR 라이브러리를 불러오지 못했습니다. 네트워크 연결 확인 후 새로고침해주세요.',
+      logoTooLarge: '이미지는 최대 2MB까지 업로드 가능합니다.',
+      logoEccChanged: '로고 삽입으로 오류 수정 레벨을 H로 변경했습니다',
+      copied: '클립보드에 복사되었습니다!',
+      copyFailed: '클립보드 복사에 실패했습니다. 브라우저를 확인해주세요.',
+      restored: '이전 설정이 복원되었습니다',
+      historyEmpty: '아직 생성 기록이 없습니다',
+      historyThumbAlt: 'QR 미리보기',
+      savedTotal: (n) => `QR코드가 저장되었습니다! 총 ${n}개 생성`,
+      presetHints: {
+        restaurant: '메뉴판에 인쇄 시 최소 2×2cm 크기로 인쇄하세요',
+        'cafe-wifi': '카페 Wi-Fi QR이 준비되었습니다. SSID와 비밀번호를 입력하세요',
+        kakao: '카카오 채널 URL을 입력하세요',
+        label: '제품 라벨용 소형 QR 설정이 적용되었습니다',
+        'business-card': '명함용 vCard QR 설정이 적용되었습니다',
+        store: '스마트스토어/쇼핑몰 URL을 입력하세요'
+      }
+    },
+    en: {
+      fgPresets: [
+        { name: 'Black', color: '#000000' },
+        { name: 'Navy', color: '#1e3a5f' },
+        { name: 'Red', color: '#dc2626' },
+        { name: 'Green', color: '#16a34a' },
+        { name: 'Purple', color: '#7c3aed' },
+        { name: 'Orange', color: '#ea580c' },
+        { name: 'Yellow', color: '#FEE500' },
+        { name: 'Teal', color: '#03C75A' }
+      ],
+      bgPresets: [
+        { name: 'White', color: '#ffffff' },
+        { name: 'Beige', color: '#f5f0e8' },
+        { name: 'Sky', color: '#e0f2fe' },
+        { name: 'Lime', color: '#ecfccb' },
+        { name: 'Light yellow', color: '#fef9c3' },
+        { name: 'Pink', color: '#fce7f3' },
+        { name: 'Light gray', color: '#f1f5f9' },
+        { name: 'Mint', color: '#ccfbf1' }
+      ],
+      eccGuides: {
+        L: 'L: clean environment, no logo',
+        M: 'M: general use (recommended)',
+        Q: 'Q: medium error recovery',
+        H: 'H: required when adding a logo'
+      },
+      libError: 'Could not load the QR library. Please check your connection and refresh.',
+      logoTooLarge: 'Image must be 2MB or smaller.',
+      logoEccChanged: 'Error correction level set to H for the logo',
+      copied: 'Copied to clipboard!',
+      copyFailed: 'Failed to copy to clipboard. Please check your browser.',
+      restored: 'Previous settings restored',
+      historyEmpty: 'No QR codes generated yet',
+      historyThumbAlt: 'QR preview',
+      savedTotal: (n) => `QR code saved! ${n} created so far`,
+      presetHints: {
+        restaurant: 'Print at least 2×2cm (0.8in) on the menu',
+        'cafe-wifi': 'Cafe Wi-Fi QR is ready. Enter the SSID and password',
+        kakao: 'Enter your social channel URL',
+        label: 'Compact QR settings for product labels applied',
+        'business-card': 'vCard QR settings for business cards applied',
+        store: 'Enter your online store URL'
+      }
+    }
   };
+
+  const T = IS_EN ? I18N.en : I18N.ko;
+
+  const FG_PRESETS = T.fgPresets;
+  const BG_PRESETS = T.bgPresets;
+  const ECC_GUIDES = T.eccGuides;
 
   const state = {
     activeTab: 'url',
@@ -80,7 +155,7 @@
     loadHistory();
     applyPresetDefaults();
     if (typeof QRCode === 'undefined') {
-      showToast('QR 라이브러리를 불러오지 못했습니다. 네트워크 연결 확인 후 새로고침해주세요.');
+      showToast(T.libError);
       return;
     }
     scheduleRender();
@@ -363,7 +438,7 @@
 
   function generateMatrix(text) {
     if (typeof QRCode === 'undefined') {
-      showToast('QR 라이브러리를 불러오지 못했습니다. 네트워크 연결 확인 후 새로고침해주세요.');
+      showToast(T.libError);
       return null;
     }
 
@@ -600,7 +675,7 @@
     }
 
     if (file.size > 2 * 1024 * 1024) {
-      showToast('이미지는 최대 2MB까지 업로드 가능합니다.');
+      showToast(T.logoTooLarge);
       e.target.value = '';
       return;
     }
@@ -613,7 +688,7 @@
         $('#logo-options').classList.remove('hidden');
         if (state.ecc !== 'H') {
           setOptions({ ecc: 'H' });
-          showToast('로고 삽입으로 오류 수정 레벨을 H로 변경했습니다');
+          showToast(T.logoEccChanged);
         }
         $('#logo-warning').classList.add('hidden');
         scheduleRender();
@@ -751,9 +826,9 @@
     try {
       const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
       await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-      onExportSuccess('클립보드에 복사되었습니다!');
+      onExportSuccess(T.copied);
     } catch (err) {
-      showToast('클립보드 복사에 실패했습니다. 브라우저를 확인해주세요.');
+      showToast(T.copyFailed);
     }
   }
 
@@ -761,7 +836,7 @@
     totalGenerated++;
     localStorage.setItem('qr_total_generated', totalGenerated.toString());
     saveToHistory();
-    showToast(message || `QR코드가 저장되었습니다! 총 ${totalGenerated}개 생성`);
+    showToast(message || T.savedTotal(totalGenerated));
   }
 
   function getStateSnapshot() {
@@ -839,7 +914,7 @@
     const history = JSON.parse(localStorage.getItem('qr_history') || '[]');
 
     if (history.length === 0) {
-      list.innerHTML = '<li class="history-empty">아직 생성 기록이 없습니다</li>';
+      list.innerHTML = '<li class="history-empty">' + escapeHtml(T.historyEmpty) + '</li>';
       return;
     }
 
@@ -848,7 +923,7 @@
       const li = document.createElement('li');
       li.className = 'history-item';
       li.innerHTML = `
-        <img class="history-thumb" src="${item.thumb}" alt="QR 미리보기" width="32" height="32">
+        <img class="history-thumb" src="${item.thumb}" alt="${escapeHtml(T.historyThumbAlt)}" width="32" height="32">
         <span class="history-text">${escapeHtml(item.content.substring(0, 50))}</span>
       `;
       li.addEventListener('click', () => restoreHistory(item));
@@ -916,18 +991,11 @@
     updatePresetActive('fg', item.fgColor);
     updatePresetActive('bg', item.bgColor);
     scheduleRender();
-    showToast('이전 설정이 복원되었습니다');
+    showToast(T.restored);
   }
 
   function applyPreset(preset) {
-    const hints = {
-      restaurant: '메뉴판에 인쇄 시 최소 2×2cm 크기로 인쇄하세요',
-      'cafe-wifi': '카페 Wi-Fi QR이 준비되었습니다. SSID와 비밀번호를 입력하세요',
-      kakao: '카카오 채널 URL을 입력하세요',
-      label: '제품 라벨용 소형 QR 설정이 적용되었습니다',
-      'business-card': '명함용 vCard QR 설정이 적용되었습니다',
-      store: '스마트스토어/쇼핑몰 URL을 입력하세요'
-    };
+    const hints = T.presetHints;
 
     $('#preset-hint').textContent = hints[preset] || '';
 
