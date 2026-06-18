@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동적 QR vs 정적 QR 차이 — 어떤 걸 써야 할까 | QR코드 만들기</title>
+  <meta name="description" content="동적 QR코드와 정적 QR코드의 차이를 한눈에 정리했습니다. 수정 가능 여부, 유효기간, 추적 기능, 비용까지 비교하고 상황별로 어떤 것을 골라야 하는지 알려드립니다.">
+  <link rel="canonical" href="https://qr-maker-8q3.pages.dev/guides/qr-dynamic-vs-static">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qr-maker-8q3.pages.dev/guides/qr-dynamic-vs-static">
+  <meta property="og:title" content="동적 QR vs 정적 QR 차이 — 어떤 걸 써야 할까">
+  <meta property="og:description" content="동적 QR과 정적 QR의 차이(수정·유효기간·추적·비용)를 비교하고 상황별로 무엇을 골라야 하는지 정리했습니다.">
+  <meta property="og:site_name" content="QR코드 만들기">
+  <meta property="og:image" content="https://qr-maker-8q3.pages.dev/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="동적 QR vs 정적 QR 차이 - QR코드 만들기">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="동적 QR vs 정적 QR 차이 — 어떤 걸 써야 할까">
+  <meta name="twitter:description" content="동적 QR과 정적 QR의 차이(수정·유효기간·추적·비용)를 비교하고 상황별로 무엇을 골라야 하는지 정리했습니다.">
+  <meta name="twitter:image" content="https://qr-maker-8q3.pages.dev/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "동적 QR vs 정적 QR 차이 — 어떤 걸 써야 할까",
+    "description": "동적 QR코드와 정적 QR코드의 차이를 수정 가능 여부, 유효기간, 추적 기능, 비용 측면에서 비교하고, 상황별로 어떤 것을 선택해야 하는지 정리했습니다.",
+    "inLanguage": "ko",
+    "datePublished": "2026-06-18",
+    "dateModified": "2026-06-18",
+    "image": "https://qr-maker-8q3.pages.dev/og-image.png",
+    "author": {
+      "@type": "Organization",
+      "name": "QR코드 만들기",
+      "url": "https://qr-maker-8q3.pages.dev/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "QR코드 만들기",
+      "url": "https://qr-maker-8q3.pages.dev/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://qr-maker-8q3.pages.dev/guides/qr-dynamic-vs-static"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "QR코드 만들기",
+        "item": "https://qr-maker-8q3.pages.dev/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "활용 가이드",
+        "item": "https://qr-maker-8q3.pages.dev/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "동적 QR vs 정적 QR 차이",
+        "item": "https://qr-maker-8q3.pages.dev/guides/qr-dynamic-vs-static"
+      }
+    ]
+  }
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">▣</span>
+        <span class="logo-text">QR코드 만들기</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <a href="/" class="back-link">← QR코드 만들기로 돌아가기</a>
+    <h1>동적 QR vs 정적 QR 차이 — 어떤 걸 써야 할까</h1>
+    <p class="guide-meta">QR코드 만들기 가이드 · 2026년 6월 18일</p>
+
+    <p>QR코드를 만들려고 검색하다 보면 "동적 QR(Dynamic QR)"과 "정적 QR(Static QR)"이라는 말을 마주치게 됩니다. 같은 모양의 까만 네모인데 왜 종류가 나뉘는지, 어떤 걸 골라야 하는지 헷갈리기 쉽습니다. 결론부터 말하면 둘의 차이는 단 하나, <strong>"QR코드 안에 정보를 직접 담느냐, 아니면 중간 주소를 거쳐 연결하느냐"</strong>입니다. 이 차이 하나가 수정 가능 여부, 유효기간, 추적 기능, 비용까지 모두 갈라놓습니다. 이 글에서는 두 방식을 명확히 비교하고, 상황별로 무엇을 선택해야 하는지 정리합니다.</p>
+
+    <h2>정적 QR코드란?</h2>
+    <p>정적 QR코드는 연결할 정보를 코드 안에 그대로 새겨 넣은 방식입니다. URL을 담으면 그 주소가, 와이파이 정보를 담으면 SSID와 비밀번호가 코드의 검은 점 패턴 자체에 인코딩됩니다. 스캐너는 중간 서버를 거치지 않고 코드만 읽어 바로 그 정보를 꺼냅니다. 종이에 주소를 직접 써 놓은 것과 비슷합니다. 한 번 인쇄하면 그 안의 내용은 영원히 고정됩니다.</p>
+    <p>장점은 분명합니다. 외부 서비스에 의존하지 않으므로 <strong>유효기간이 없고, 매달 내는 비용도 없으며, 서버가 닫혀서 못 쓰게 될 일도 없습니다.</strong> 본 <a href="/">QR코드 만들기</a> 서비스가 생성하는 QR코드가 바로 이 정적 방식입니다. 입력한 와이파이 비밀번호나 연락처가 서버로 전송되지 않고 브라우저 안에서만 처리되는 것도 정보가 코드 자체에 담기기 때문입니다.</p>
+    <p>단점도 같은 원리에서 나옵니다. 내용이 코드에 박혀 있으니 <strong>한 번 인쇄한 뒤에는 연결 대상을 바꿀 수 없습니다.</strong> 메뉴판 주소를 잘못 넣어 인쇄했다면 새 QR코드를 만들어 다시 붙여야 합니다. 또 몇 명이 언제 스캔했는지 같은 통계도 코드 자체로는 알 수 없습니다.</p>
+
+    <h2>동적 QR코드란?</h2>
+    <p>동적 QR코드는 코드 안에 최종 목적지가 아니라 <strong>중간 경유 주소(짧은 리다이렉트 URL)</strong>를 담습니다. 손님이 스캔하면 일단 그 중간 주소로 갔다가, 거기서 실제 목적지로 다시 보내집니다. 우편물 전달 주소(사서함)와 비슷합니다. 사서함 번호(인쇄된 코드)는 그대로 둔 채, 그 번호가 가리키는 실제 주소만 나중에 바꿀 수 있습니다.</p>
+    <p>그래서 동적 QR은 <strong>인쇄한 뒤에도 연결 대상을 자유롭게 수정</strong>할 수 있고, 중간 주소를 거치는 만큼 <strong>스캔 횟수·시간·대략적 위치 같은 통계</strong>도 모을 수 있습니다. 대신 그 중간 주소를 운영하는 외부 서비스가 반드시 필요합니다. 보통 월 구독료를 내야 하고, 그 서비스가 문을 닫거나 구독을 끊으면 <strong>이미 인쇄한 코드까지 한꺼번에 죽어버린다</strong>는 치명적인 약점이 있습니다.</p>
+
+    <h2>한눈에 보는 차이 비교</h2>
+    <table>
+      <thead>
+        <tr><th>항목</th><th>정적 QR</th><th>동적 QR</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>정보 저장 위치</td><td>코드 자체</td><td>중간 경유 주소</td></tr>
+        <tr><td>인쇄 후 내용 수정</td><td>불가 (새로 만들어 교체)</td><td>가능</td></tr>
+        <tr><td>유효기간</td><td>없음 (영구)</td><td>서비스 구독에 종속</td></tr>
+        <tr><td>스캔 통계·추적</td><td>코드만으로는 불가</td><td>가능</td></tr>
+        <tr><td>비용</td><td>무료</td><td>대개 월 구독</td></tr>
+        <tr><td>외부 서비스 의존</td><td>없음</td><td>필수</td></tr>
+        <tr><td>코드 복잡도</td><td>담는 정보가 길수록 촘촘</td><td>짧은 주소라 항상 단순</td></tr>
+      </tbody>
+    </table>
+    <p>표에서 마지막 줄은 의외로 실용적인 차이입니다. 정적 QR은 담는 주소가 길면(긴 추적 파라미터가 붙은 URL 등) 모듈이 촘촘해져 작게 인쇄할 때 불리합니다. 이럴 때는 긴 주소를 짧은 단축 URL로 바꿔 정적 QR에 담으면 코드가 한결 단순해집니다.</p>
+
+    <h2>나는 어떤 걸 써야 할까?</h2>
+    <p>대부분의 소상공인과 개인에게는 <strong>정적 QR이면 충분합니다.</strong> 다음과 같은 경우라면 굳이 동적 QR의 구독료를 낼 이유가 없습니다.</p>
+    <ul>
+      <li><strong>연결 대상이 거의 안 바뀐다</strong> — 네이버 플레이스 페이지, 홈페이지, 유튜브 채널처럼 주소가 고정된 곳으로 연결할 때.</li>
+      <li><strong>와이파이·명함·텍스트 QR</strong> — 이 정보들은 애초에 코드 안에 담기는 정적 방식이며, 동적으로 만들 이유가 없습니다. 정보가 바뀌면 그때 새로 만들면 됩니다. (제작법은 <a href="/guides/wifi-qr">와이파이 QR 가이드</a>와 <a href="/guides/qr-business-card">명함 QR 가이드</a> 참고)</li>
+      <li><strong>스캔 통계가 꼭 필요하지 않다</strong> — 정확한 스캔 수가 매출에 직결되지 않는 일반 매장이라면, 통계보다 "유효기간 없이 영원히 동작한다"는 안정성이 더 큰 이점입니다.</li>
+      <li><strong>비용을 들이고 싶지 않다</strong> — 정적 QR은 워터마크도, 월 사용료도 없습니다.</li>
+    </ul>
+    <p>반대로 다음이라면 동적 QR(외부 유료 서비스)을 고려할 만합니다. 단, 위에서 짚은 "서비스 종료 시 코드가 죽는다"는 위험을 반드시 감안하세요.</p>
+    <ul>
+      <li><strong>같은 인쇄물의 링크를 자주 바꿔야 한다</strong> — 시즌마다 이벤트 페이지가 바뀌는 대형 포스터·옥외광고처럼, 인쇄물은 그대로 두고 목적지만 교체하고 싶을 때.</li>
+      <li><strong>캠페인별 정밀한 스캔 데이터가 필요하다</strong> — 전단지 A/B 테스트, 매체별 유입 측정 등 마케팅 성과를 숫자로 분석해야 할 때.</li>
+    </ul>
+
+    <h2>정적 QR로도 "수정"과 "추적"을 흉내 내는 법</h2>
+    <p>구독료 없이도 동적 QR의 일부 장점을 얻는 현실적인 방법이 있습니다.</p>
+    <ul>
+      <li><strong>수정 가능하게 만들기</strong> — QR에 최종 목적지 대신 <em>내가 통제할 수 있는 안정적인 주소</em>(내 홈페이지의 고정 경로, 직접 만든 단축 링크 등)를 담고, 그 주소에서 실제 페이지로 연결해 두면 됩니다. 나중에 그 연결만 바꾸면 인쇄된 QR은 그대로 둬도 목적지가 바뀝니다. 사실상 동적 QR의 원리를 내 손으로 구현하는 셈입니다.</li>
+      <li><strong>대략적인 추적</strong> — QR에 담는 URL 끝에 캠페인 표시용 파라미터(예: <code>?utm_source=poster</code>)를 붙이면, 연결되는 페이지의 방문 분석 도구에서 QR 유입을 구분해 볼 수 있습니다. 단, 파라미터가 길어지면 코드가 촘촘해지니 단축 URL과 함께 쓰는 것이 좋습니다.</li>
+    </ul>
+    <p>이 두 가지만으로도 일반적인 매장 운영에서 동적 QR이 아쉬운 순간은 거의 사라집니다.</p>
+
+    <h2>인쇄 전 체크리스트</h2>
+    <ul>
+      <li>연결 주소가 자주 바뀔 일이 없는지 확인했는가 (정적이면 인쇄 후 수정 불가)</li>
+      <li>담는 URL이 너무 길지 않은지, 길다면 단축 URL로 줄였는가</li>
+      <li>QR에 담긴 주소를 직접 열어 오타·만료 여부를 확인했는가</li>
+      <li>인쇄 크기와 색 대비, 여백이 충분한지 점검했는가</li>
+    </ul>
+    <p>요약하면, "한 번 정하면 잘 안 바뀌는 정보"는 정적 QR이 정답이고, "인쇄물은 그대로 두고 링크만 자주 갈아야 하는 캠페인"에서만 동적 QR을 검토하면 됩니다. 대부분의 경우 무료이면서 유효기간 없는 정적 QR이 가장 합리적인 선택입니다.</p>
+
+    <div class="guide-cta">
+      <p>유효기간 없는 정적 QR코드를 지금 무료로 만들어 보세요. 설치도 회원가입도 없이 1분이면 됩니다.</p>
+      <a href="/" class="btn-cta">무료로 QR코드 만들기</a>
+    </div>
+
+    <section class="guide-related">
+      <h2>함께 읽으면 좋은 가이드</h2>
+      <ul>
+        <li><a href="/guides/qr-code-howto">QR코드 만드는 법 — 무료로 1분 만에</a> — 제작이 처음이라면 단계별 기본기부터</li>
+        <li><a href="/guides/qr-error-correction">QR코드가 인식 안 될 때 해결법</a> — 오류 보정 레벨, 크기, 여백, 색상 대비 총정리</li>
+        <li><a href="/guides/qr-marketing">소상공인을 위한 QR코드 마케팅 활용법 7가지</a> — 만든 QR코드를 어디에 쓸지 막막하다면</li>
+        <li><a href="/guides/wifi-qr">매장 와이파이 QR코드 만들기 완벽 가이드</a> — 대표적인 정적 QR 활용 예</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="활용 가이드">
+        <span class="footer-nav-title">활용 가이드</span>
+        <a href="/guides/qr-code-howto">QR코드 만드는 법</a>
+        <a href="/guides/qr-business-card">QR코드 명함 만들기</a>
+        <a href="/guides/wifi-qr">매장 와이파이 QR코드 만들기</a>
+        <a href="/guides/qr-marketing">QR코드 마케팅 활용법 7가지</a>
+        <a href="/guides/qr-error-correction">QR코드 인식 문제 해결법</a>
+        <a href="/guides/qr-dynamic-vs-static">동적 QR vs 정적 QR 차이</a>
+      </nav>
+      <nav class="footer-nav" aria-label="사이트 정보">
+        <a href="/about">사이트 소개</a>
+        <a href="/terms">이용약관</a>
+        <a href="/privacy">개인정보처리방침</a>
+      </nav>
+      <nav class="footer-nav" aria-label="함께 쓰면 좋은 도구">
+        <span class="footer-nav-title">함께 쓰면 좋은 도구</span>
+        <a href="https://pixel-art-maker-dsq.pages.dev" rel="noopener">도트 그림 그리는 픽셀아트 메이커</a>
+        <a href="https://resume-maker-4u5.pages.dev" rel="noopener">무료 이력서 만들기</a>
+        <a href="https://diagram-maker.pages.dev" rel="noopener">순서도·다이어그램 메이커</a>
+        <a href="https://stockcoincalc.pages.dev" rel="noopener">주식·코인 수익 계산기</a>
+        <a href="https://agihanki-calculator.pages.dev" rel="noopener">아기 이유식 계산기</a>
+      </nav>
+      <p>&copy; 2026 QR코드 만들기. 무료 QR코드 생성기.</p>
+    </div>
+  </footer>
+</body>
+</html>
