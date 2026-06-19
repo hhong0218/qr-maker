@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://qr-maker-8q3.pages.dev/sitemap.xml
+Sitemap: https://qr.matchiq.co.kr/sitemap.xml
