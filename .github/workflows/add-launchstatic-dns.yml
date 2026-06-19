@@ -1,0 +1,23 @@
+name: Add launchstatic DNS (one-time)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dns:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create CNAME launchstatic.matchiq.co.kr
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ZONE_ID: 34dbddbeffd17269f87196b4fa470465
+        run: |
+          set -e
+          EXISTING=$(curl -s "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?name=launchstatic.matchiq.co.kr" \
+            -H "Authorization: Bearer $CF_TOKEN")
+          echo "$EXISTING" | grep -q '"count":0' || { echo "Record exists"; exit 0; }
+          RESP=$(curl -s -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records" \
+            -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" \
+            --data '{"type":"CNAME","name":"launchstatic","content":"launchstatic.pages.dev","proxied":true,"ttl":1}')
+          echo "$RESP"
+          echo "$RESP" | grep -q '"success":true'
