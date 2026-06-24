@@ -837,6 +837,13 @@
     localStorage.setItem('qr_total_generated', totalGenerated.toString());
     saveToHistory();
     showToast(message || T.savedTotal(totalGenerated));
+    // GA4 실사용 전환 측정: QR을 실제로 내보냈을 때만 발생 (미리보기 렌더 제외)
+    if (typeof gtag === 'function') {
+      gtag('event', 'qr_export', {
+        qr_type: state.activeTab || 'unknown',
+        total_generated: totalGenerated
+      });
+    }
   }
 
   function getStateSnapshot() {
