@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>식당 메뉴판 QR코드 만들기 — 디지털 메뉴 도입 가이드 | QR코드 만들기</title>
+  <meta name="description" content="식당·카페 디지털 메뉴판 QR코드 만드는 법. 종이 메뉴를 모바일로 바꾸는 장점, 메뉴 업데이트 방법, 테이블 배치와 인쇄 팁까지 실전 정리.">
+  <link rel="canonical" href="https://qr.matchiq.co.kr/guides/menu-qr">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qr.matchiq.co.kr/guides/menu-qr">
+  <meta property="og:title" content="식당 메뉴판 QR코드 만들기 — 디지털 메뉴 도입 가이드">
+  <meta property="og:description" content="식당·카페 디지털 메뉴판 QR코드 만드는 법. 종이 메뉴를 모바일로 바꾸는 장점, 메뉴 업데이트 방법, 테이블 배치와 인쇄 팁.">
+  <meta property="og:site_name" content="QR코드 만들기">
+  <meta property="og:image" content="https://qr.matchiq.co.kr/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="식당 메뉴판 QR코드 만들기 - QR코드 만들기">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="식당 메뉴판 QR코드 만들기 — 디지털 메뉴 도입 가이드">
+  <meta name="twitter:description" content="식당·카페 디지털 메뉴판 QR코드 만드는 법. 메뉴 업데이트, 테이블 배치, 인쇄 팁까지.">
+  <meta name="twitter:image" content="https://qr.matchiq.co.kr/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "식당 메뉴판 QR코드 만들기 — 디지털 메뉴 도입 가이드",
+    "description": "식당·카페 디지털 메뉴판 QR코드 만드는 법. 종이 메뉴를 모바일로 바꾸는 장점, 메뉴 업데이트 방법, 테이블 배치와 인쇄 팁을 정리했습니다.",
+    "inLanguage": "ko",
+    "datePublished": "2026-06-25",
+    "dateModified": "2026-06-25",
+    "image": "https://qr.matchiq.co.kr/og-image.png",
+    "author": { "@type": "Organization", "name": "QR코드 만들기", "url": "https://qr.matchiq.co.kr/" },
+    "publisher": { "@type": "Organization", "name": "QR코드 만들기", "url": "https://qr.matchiq.co.kr/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://qr.matchiq.co.kr/guides/menu-qr" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "QR코드 만들기", "item": "https://qr.matchiq.co.kr/" },
+      { "@type": "ListItem", "position": 2, "name": "활용 가이드", "item": "https://qr.matchiq.co.kr/guides/" },
+      { "@type": "ListItem", "position": 3, "name": "식당 메뉴판 QR코드 만들기", "item": "https://qr.matchiq.co.kr/guides/menu-qr" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "가격이 바뀌면 QR코드도 다시 인쇄해야 하나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "아니요. QR코드가 가리키는 메뉴 페이지(블로그, 노션, 메뉴 호스팅 서비스 등)의 내용만 고치면, 같은 QR코드를 그대로 두고도 손님은 항상 최신 가격을 봅니다. 종이 메뉴처럼 가격이 바뀔 때마다 다시 인쇄할 필요가 없는 것이 디지털 메뉴판의 가장 큰 장점입니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "메뉴 페이지가 따로 없는데 어떻게 만드나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "블로그 글, 네이버 스마트플레이스 메뉴, 노션 페이지, 인스타그램 하이라이트 등 사진과 가격이 있는 어떤 웹페이지든 메뉴 페이지로 쓸 수 있습니다. 그 주소를 복사해 URL QR로 만들면 됩니다. 별도 비싼 솔루션이 꼭 필요한 것은 아닙니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "어르신 손님이 많은데 디지털 메뉴가 불편하지 않을까요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "디지털 메뉴는 종이 메뉴를 완전히 없애기보다 병행하는 것이 좋습니다. 테이블에는 QR과 함께 간단한 종이 메뉴를 두고, 사진·상세 설명·다국어가 필요한 손님이 QR을 쓰도록 하면 양쪽 모두 만족시킬 수 있습니다." }
+      }
+    ]
+  }
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">▣</span>
+        <span class="logo-text">QR코드 만들기</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <a href="/" class="back-link">← QR코드 만들기로 돌아가기</a>
+    <h1>식당 메뉴판 QR코드 만들기 — 디지털 메뉴 도입 가이드</h1>
+    <p class="guide-meta">QR코드 만들기 가이드 · 2026년 6월 25일</p>
+
+    <p>코팅된 종이 메뉴판은 가격이 한 번 바뀔 때마다 디자인·인쇄·코팅 비용이 다시 듭니다. 신메뉴가 나와도 한참 뒤에야 반영되고, 손님 손을 거치며 금방 너덜너덜해집니다. 메뉴판 QR코드는 이 모든 고민을 한 번에 해결합니다. 테이블 위 작은 QR 하나면 손님은 사진과 설명이 담긴 모바일 메뉴를 보고, 사장님은 가격이 바뀌어도 웹페이지만 고치면 끝입니다.</p>
+
+    <h2>디지털 메뉴판이 종이보다 나은 이유</h2>
+    <p>가장 큰 차이는 <strong>수정의 자유</strong>입니다. 점심 한정 메뉴, 품절, 가격 인상을 실시간으로 반영할 수 있습니다. 둘째는 <strong>풍부한 정보</strong>입니다. 종이 한 장에 담기 어려운 음식 사진, 원산지, 알레르기 정보, 매운맛 단계, 추천 조합을 얼마든지 보여줄 수 있어 객단가 상승에도 도움이 됩니다. 셋째는 <strong>다국어 대응</strong>입니다. 관광 상권이라면 메뉴 페이지에 영어·일본어·중국어를 함께 올려 외국인 손님 응대 부담을 줄일 수 있습니다. 넷째는 <strong>위생</strong>으로, 여러 사람이 만지는 종이 메뉴 대신 각자 폰으로 보니 비접촉 응대가 됩니다.</p>
+
+    <h2>메뉴판 QR 만드는 순서</h2>
+    <ol>
+      <li><strong>메뉴 페이지 준비</strong> — 네이버 스마트플레이스 메뉴, 블로그, 노션 등 사진·가격이 있는 페이지 주소를 준비합니다.</li>
+      <li><strong>URL 탭에 주소 입력</strong> — <a href="/">QR코드 만들기</a>에서 URL 탭을 고르고 메뉴 페이지 주소를 붙여 넣습니다.</li>
+      <li><strong>매장 분위기에 맞춰 색 조정</strong> — 인테리어에 맞춘 색을 쓰되 어두운 전경 + 밝은 배경 대비는 꼭 유지합니다.</li>
+      <li><strong>고화질 저장 후 테이블 텐트로 제작</strong> — 고화질 x4 PNG로 저장해 아크릴 스탠드나 테이블 텐트에 넣습니다.</li>
+    </ol>
+
+    <h2>테이블 배치·인쇄 팁</h2>
+    <ul>
+      <li><strong>크기는 3~5cm.</strong> 손님이 앉은 채 30cm 안에서 찍으므로 너무 클 필요는 없습니다. "메뉴 보기 →" 라벨을 함께 넣으세요.</li>
+      <li><strong>아크릴 스탠드 + 무광 코팅.</strong> 물·기름이 닿는 테이블에서는 코팅이 필수이고, 조명 반사를 막으려면 무광이 유리합니다.</li>
+      <li><strong>테이블 번호 주문과 연동.</strong> 테이블별로 다른 QR을 두면 비대면 주문·호출과도 연결할 수 있습니다. 자리 안내가 필요하다면 <a href="/guides/seat-qr">좌석안내 QR 가이드</a>도 함께 보세요.</li>
+    </ul>
+
+    <h2>자주 묻는 질문</h2>
+    <h3>가격이 바뀌면 QR코드도 다시 인쇄해야 하나요?</h3>
+    <p>아니요. QR이 가리키는 메뉴 페이지 내용만 고치면 같은 QR로 항상 최신 가격이 표시됩니다. 종이처럼 재인쇄할 필요가 없습니다.</p>
+    <h3>메뉴 페이지가 따로 없는데 어떻게 만드나요?</h3>
+    <p>네이버 스마트플레이스 메뉴, 블로그, 노션, 인스타그램 하이라이트 등 사진·가격이 있는 어떤 웹페이지든 주소를 복사해 URL QR로 만들면 됩니다.</p>
+    <h3>어르신 손님이 많은데 불편하지 않을까요?</h3>
+    <p>디지털 메뉴는 종이 메뉴와 병행하는 것이 좋습니다. 간단한 종이 메뉴를 함께 두고 상세·사진·다국어가 필요한 손님이 QR을 쓰게 하세요.</p>
+
+    <div class="guide-cta">
+      <p>우리 가게 메뉴 페이지 주소를 QR코드로 만들어 테이블에 올려 보세요.</p>
+      <a href="/" class="btn-cta">무료로 메뉴판 QR 만들기</a>
+    </div>
+
+    <section class="guide-related">
+      <h2>함께 읽으면 좋은 가이드</h2>
+      <ul>
+        <li><a href="/guides/qr-marketing">소상공인을 위한 QR코드 마케팅 활용법 7가지</a> — 메뉴판 다음은 리뷰·단골 만들기</li>
+        <li><a href="/guides/url-qr">URL·링크 QR코드 만들기</a> — 메뉴 페이지 주소를 QR로 바꾸는 기본기</li>
+        <li><a href="/guides/seat-qr">좌석안내 QR코드 만들기</a> — 테이블별 주문·호출과 연결하기</li>
+        <li><a href="/guides/wifi-qr">매장 와이파이 QR코드 만들기</a> — 메뉴판 옆에 와이파이 QR도 함께</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="활용 가이드">
+        <span class="footer-nav-title">활용 가이드</span>
+        <a href="/guides/qr-code-howto">QR코드 만드는 법</a>
+        <a href="/guides/qr-business-card">QR코드 명함 만들기</a>
+        <a href="/guides/wifi-qr">매장 와이파이 QR코드 만들기</a>
+        <a href="/guides/qr-marketing">QR코드 마케팅 활용법 7가지</a>
+        <a href="/guides/qr-error-correction">QR코드 인식 문제 해결법</a>
+        <a href="/guides/qr-dynamic-vs-static">동적 QR vs 정적 QR 차이</a>
+      </nav>
+      <nav class="footer-nav" aria-label="사이트 정보">
+        <a href="/about">사이트 소개</a>
+        <a href="/terms">이용약관</a>
+        <a href="/privacy">개인정보처리방침</a>
+      </nav>
+      <nav class="footer-nav" aria-label="함께 쓰면 좋은 도구">
+        <span class="footer-nav-title">함께 쓰면 좋은 도구</span>
+        <a href="https://pixel.matchiq.co.kr" rel="noopener">도트 그림 그리는 픽셀아트 메이커</a>
+        <a href="https://resume.matchiq.co.kr" rel="noopener">무료 이력서 만들기</a>
+        <a href="https://diagram.matchiq.co.kr" rel="noopener">순서도·다이어그램 메이커</a>
+        <a href="https://stockpro.kr" rel="noopener">주식·코인 수익 계산기</a>
+        <a href="https://agihanki.matchiq.co.kr" rel="noopener">아기 이유식 계산기</a>
+      </nav>
+      <p>&copy; 2026 QR코드 만들기. 무료 QR코드 생성기.</p>
+    </div>
+  </footer>
+</body>
+</html>

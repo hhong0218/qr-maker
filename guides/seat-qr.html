@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>좌석안내 QR코드 만들기 — 테이블·자리별 안내·주문 | QR코드 만들기</title>
+  <meta name="description" content="테이블·좌석마다 다른 QR코드를 두는 방법. 식당 테이블 주문·호출, 공연장·강당 좌석 안내, 스터디카페 자리 배정까지 좌석별 QR 활용법을 정리했습니다.">
+  <link rel="canonical" href="https://qr.matchiq.co.kr/guides/seat-qr">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qr.matchiq.co.kr/guides/seat-qr">
+  <meta property="og:title" content="좌석안내 QR코드 만들기 — 테이블·자리별 안내·주문">
+  <meta property="og:description" content="테이블·좌석마다 다른 QR코드를 두는 방법. 식당 테이블 주문·호출, 공연장 좌석 안내, 스터디카페 자리 배정까지.">
+  <meta property="og:site_name" content="QR코드 만들기">
+  <meta property="og:image" content="https://qr.matchiq.co.kr/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="좌석안내 QR코드 만들기 - QR코드 만들기">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="좌석안내 QR코드 만들기 — 테이블·자리별 안내·주문">
+  <meta name="twitter:description" content="테이블·좌석마다 다른 QR코드를 두는 방법. 식당 테이블 주문·호출, 공연장 좌석 안내까지.">
+  <meta name="twitter:image" content="https://qr.matchiq.co.kr/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "좌석안내 QR코드 만들기 — 테이블·자리별 안내·주문",
+    "description": "테이블·좌석마다 다른 QR코드를 두는 방법. 식당 테이블 주문·호출, 공연장·강당 좌석 안내, 스터디카페 자리 배정까지 좌석별 QR 활용법을 정리했습니다.",
+    "inLanguage": "ko",
+    "datePublished": "2026-06-25",
+    "dateModified": "2026-06-25",
+    "image": "https://qr.matchiq.co.kr/og-image.png",
+    "author": { "@type": "Organization", "name": "QR코드 만들기", "url": "https://qr.matchiq.co.kr/" },
+    "publisher": { "@type": "Organization", "name": "QR코드 만들기", "url": "https://qr.matchiq.co.kr/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://qr.matchiq.co.kr/guides/seat-qr" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "QR코드 만들기", "item": "https://qr.matchiq.co.kr/" },
+      { "@type": "ListItem", "position": 2, "name": "활용 가이드", "item": "https://qr.matchiq.co.kr/guides/" },
+      { "@type": "ListItem", "position": 3, "name": "좌석안내 QR코드 만들기", "item": "https://qr.matchiq.co.kr/guides/seat-qr" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "테이블마다 다른 QR을 만들어야 하나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "테이블을 구분해야 하는 주문·호출 용도라면 테이블마다 다른 QR이 필요합니다. 보통 같은 주소 뒤에 테이블 번호를 붙여(예: ...?table=5) 각각 QR로 만듭니다. 반대로 모든 좌석이 같은 안내 페이지를 보면 되는 경우라면 QR 하나를 여러 장 출력해 붙여도 됩니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "좌석 QR로 비대면 주문도 가능한가요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "주문 페이지가 테이블 번호를 인식하도록 만들어져 있으면 가능합니다. 손님이 테이블 QR을 찍으면 그 테이블 번호가 주문에 자동으로 담겨, 직원이 어느 자리 주문인지 바로 알 수 있습니다. 주문 솔루션이 제공하는 테이블별 주소를 그대로 QR로 만들면 됩니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "QR을 떼서 다른 자리에 붙이면 어떻게 되나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "좌석 번호가 코드에 들어 있으므로 QR을 옮겨 붙이면 번호가 어긋납니다. 테이블에 단단히 고정하고, 번호를 사람이 읽을 수 있게 함께 표기해 두면 오류를 빨리 발견할 수 있습니다." }
+      }
+    ]
+  }
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">▣</span>
+        <span class="logo-text">QR코드 만들기</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <a href="/" class="back-link">← QR코드 만들기로 돌아가기</a>
+    <h1>좌석안내 QR코드 만들기 — 테이블·자리별 안내·주문</h1>
+    <p class="guide-meta">QR코드 만들기 가이드 · 2026년 6월 25일</p>
+
+    <p>좌석안내 QR은 "어느 자리에서 찍었는지"를 구분하는 것이 핵심입니다. 메뉴판 QR이 가게 전체에 하나면 되는 것과 달리, 좌석 QR은 자리마다 다른 정보를 담아 직원이 손님 위치를 즉시 알 수 있게 합니다. 식당 테이블 주문·직원 호출, 공연장·강당의 내 좌석 찾기, 스터디카페·독서실 자리 이용 안내, 병원 대기 좌석 호출 등 "자리"가 의미를 갖는 모든 공간에서 쓰입니다.</p>
+
+    <h2>대표 활용 시나리오</h2>
+    <p><strong>식당·카페 테이블 주문</strong>: 테이블 5번 QR을 찍으면 주문 화면에 "5번 테이블"이 자동으로 잡혀, 손님이 직접 메뉴를 담고 결제하면 주방으로 바로 전달됩니다. 직원이 자리를 오갈 필요가 줄어 바쁜 시간대에 특히 유용합니다. <strong>직원 호출</strong>: 물·반찬 추가 요청을 QR 화면의 버튼으로 받으면 큰 소리로 부르지 않아도 됩니다. <strong>공연장·강당</strong>: 입장 동선 입구에 구역별 QR을 두면 관객이 자기 좌석 위치를 지도로 확인합니다. <strong>스터디카페</strong>: 자리마다 이용 시작·연장·문의 QR을 붙여 무인 운영을 돕습니다.</p>
+
+    <h2>좌석별 QR 만드는 법</h2>
+    <ol>
+      <li><strong>좌석 번호가 들어간 주소 준비</strong> — 주문·안내 페이지 주소 뒤에 좌석 정보를 붙입니다. 예: <code>example.com/order?table=5</code>처럼 번호만 바꾼 주소를 자리 수만큼 준비합니다.</li>
+      <li><strong>주소마다 QR 생성</strong> — <a href="/">QR코드 만들기</a> URL 탭에 각 주소를 넣어 테이블 1번, 2번… QR을 차례로 만듭니다.</li>
+      <li><strong>번호와 함께 표기</strong> — QR 아래에 "테이블 5"처럼 사람이 읽을 번호를 같이 인쇄해 혼동을 막습니다.</li>
+      <li><strong>고정 부착</strong> — 아크릴 스탠드나 테이블 매립으로 단단히 고정해 옮겨지지 않게 합니다.</li>
+    </ol>
+
+    <h2>운영 시 주의할 점</h2>
+    <ul>
+      <li><strong>QR을 절대 섞지 마세요.</strong> 인쇄·부착 단계에서 번호가 뒤바뀌면 엉뚱한 테이블로 주문이 갑니다. 부착 후 자리마다 직접 스캔해 번호를 검수하세요.</li>
+      <li><strong>대비와 크기 확보.</strong> 어두운 우드 테이블 위라면 밝은 배경 라벨에 QR을 얹어 대비를 살립니다. 자세한 내용은 <a href="/guides/qr-error-correction">인식 문제 해결 가이드</a>를 참고하세요.</li>
+      <li><strong>오염 대비 코팅.</strong> 음식이 오가는 자리라면 무광 코팅으로 오래 쓰게 합니다.</li>
+    </ul>
+
+    <h2>자주 묻는 질문</h2>
+    <h3>테이블마다 다른 QR을 만들어야 하나요?</h3>
+    <p>주문·호출처럼 자리를 구분해야 하면 테이블마다 다른 QR이 필요합니다. 같은 안내만 보여 주면 되는 경우엔 하나를 여러 장 출력해도 됩니다.</p>
+    <h3>좌석 QR로 비대면 주문도 가능한가요?</h3>
+    <p>주문 페이지가 테이블 번호를 인식하도록 되어 있으면 가능합니다. 솔루션이 주는 테이블별 주소를 그대로 QR로 만드세요.</p>
+    <h3>QR을 떼서 다른 자리에 붙이면 어떻게 되나요?</h3>
+    <p>번호가 어긋납니다. 단단히 고정하고 번호를 함께 표기해 오류를 빨리 찾으세요.</p>
+
+    <div class="guide-cta">
+      <p>테이블·좌석별 주소를 QR코드로 만들어 자리마다 배치해 보세요.</p>
+      <a href="/" class="btn-cta">무료로 좌석안내 QR 만들기</a>
+    </div>
+
+    <section class="guide-related">
+      <h2>함께 읽으면 좋은 가이드</h2>
+      <ul>
+        <li><a href="/guides/menu-qr">식당 메뉴판 QR코드 만들기</a> — 좌석 QR과 메뉴 QR을 함께 운영하기</li>
+        <li><a href="/guides/url-qr">URL·링크 QR코드 만들기</a> — 좌석별 주소를 QR로 바꾸는 기본기</li>
+        <li><a href="/guides/qr-error-correction">QR코드가 인식 안 될 때 해결법</a> — 어두운 테이블에서도 잘 찍히게</li>
+        <li><a href="/guides/event-qr">행사·이벤트 QR코드 만들기</a> — 공연·행사장 좌석 안내와 연결</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="활용 가이드">
+        <span class="footer-nav-title">활용 가이드</span>
+        <a href="/guides/qr-code-howto">QR코드 만드는 법</a>
+        <a href="/guides/qr-business-card">QR코드 명함 만들기</a>
+        <a href="/guides/wifi-qr">매장 와이파이 QR코드 만들기</a>
+        <a href="/guides/qr-marketing">QR코드 마케팅 활용법 7가지</a>
+        <a href="/guides/qr-error-correction">QR코드 인식 문제 해결법</a>
+        <a href="/guides/qr-dynamic-vs-static">동적 QR vs 정적 QR 차이</a>
+      </nav>
+      <nav class="footer-nav" aria-label="사이트 정보">
+        <a href="/about">사이트 소개</a>
+        <a href="/terms">이용약관</a>
+        <a href="/privacy">개인정보처리방침</a>
+      </nav>
+      <nav class="footer-nav" aria-label="함께 쓰면 좋은 도구">
+        <span class="footer-nav-title">함께 쓰면 좋은 도구</span>
+        <a href="https://pixel.matchiq.co.kr" rel="noopener">도트 그림 그리는 픽셀아트 메이커</a>
+        <a href="https://resume.matchiq.co.kr" rel="noopener">무료 이력서 만들기</a>
+        <a href="https://diagram.matchiq.co.kr" rel="noopener">순서도·다이어그램 메이커</a>
+        <a href="https://stockpro.kr" rel="noopener">주식·코인 수익 계산기</a>
+        <a href="https://agihanki.matchiq.co.kr" rel="noopener">아기 이유식 계산기</a>
+      </nav>
+      <p>&copy; 2026 QR코드 만들기. 무료 QR코드 생성기.</p>
+    </div>
+  </footer>
+</body>
+</html>

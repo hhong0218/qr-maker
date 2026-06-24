@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL·링크 QR코드 만들기 — 웹사이트 주소를 QR로 | QR코드 만들기</title>
+  <meta name="description" content="웹사이트·링크 주소를 QR코드로 만드는 법. 긴 URL을 한 번의 스캔으로, 포스터·전단지·제품에 넣는 활용법과 짧고 안정적인 링크 만드는 팁을 정리했습니다.">
+  <link rel="canonical" href="https://qr.matchiq.co.kr/guides/url-qr">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qr.matchiq.co.kr/guides/url-qr">
+  <meta property="og:title" content="URL·링크 QR코드 만들기 — 웹사이트 주소를 QR로">
+  <meta property="og:description" content="웹사이트·링크 주소를 QR코드로 만드는 법. 포스터·전단지·제품 활용법과 짧고 안정적인 링크 만드는 팁.">
+  <meta property="og:site_name" content="QR코드 만들기">
+  <meta property="og:image" content="https://qr.matchiq.co.kr/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="URL·링크 QR코드 만들기 - QR코드 만들기">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="URL·링크 QR코드 만들기 — 웹사이트 주소를 QR로">
+  <meta name="twitter:description" content="웹사이트·링크 주소를 QR코드로 만드는 법. 포스터·전단지 활용법과 짧고 안정적인 링크 팁.">
+  <meta name="twitter:image" content="https://qr.matchiq.co.kr/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "URL·링크 QR코드 만들기 — 웹사이트 주소를 QR로",
+    "description": "웹사이트·링크 주소를 QR코드로 만드는 법. 긴 URL을 한 번의 스캔으로, 포스터·전단지·제품에 넣는 활용법과 짧고 안정적인 링크 만드는 팁을 정리했습니다.",
+    "inLanguage": "ko",
+    "datePublished": "2026-06-25",
+    "dateModified": "2026-06-25",
+    "image": "https://qr.matchiq.co.kr/og-image.png",
+    "author": { "@type": "Organization", "name": "QR코드 만들기", "url": "https://qr.matchiq.co.kr/" },
+    "publisher": { "@type": "Organization", "name": "QR코드 만들기", "url": "https://qr.matchiq.co.kr/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://qr.matchiq.co.kr/guides/url-qr" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "QR코드 만들기", "item": "https://qr.matchiq.co.kr/" },
+      { "@type": "ListItem", "position": 2, "name": "활용 가이드", "item": "https://qr.matchiq.co.kr/guides/" },
+      { "@type": "ListItem", "position": 3, "name": "URL·링크 QR코드 만들기", "item": "https://qr.matchiq.co.kr/guides/url-qr" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "긴 URL도 QR로 만들 수 있나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "가능하지만, URL이 길수록 QR의 점(모듈)이 촘촘해져 작게 인쇄하면 인식이 어려워집니다. 추적 파라미터가 잔뜩 붙은 주소라면 꼭 필요한 부분만 남기거나 단축 URL로 줄여 QR을 만드는 것이 안정적입니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "QR코드 안에 광고나 추적이 들어가나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "정적 URL QR은 입력한 주소를 그대로 코드에 담을 뿐, 중간에 광고 페이지를 거치거나 별도 추적을 하지 않습니다. 본 도구는 주소를 서버로 보내지 않고 브라우저 안에서 QR을 생성하므로 안심하고 쓸 수 있습니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "나중에 연결 주소를 바꾸고 싶으면요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "정적 QR은 인쇄 후 주소를 바꿀 수 없습니다. 바꿀 가능성이 있다면 단축 URL이나 리디렉션 페이지로 QR을 만들고, 그 주소가 가리키는 최종 목적지만 나중에 바꾸세요. 자세한 비교는 동적 QR vs 정적 QR 가이드를 참고하세요." }
+      }
+    ]
+  }
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">
+        <span class="logo-icon">▣</span>
+        <span class="logo-text">QR코드 만들기</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <a href="/" class="back-link">← QR코드 만들기로 돌아가기</a>
+    <h1>URL·링크 QR코드 만들기 — 웹사이트 주소를 QR로</h1>
+    <p class="guide-meta">QR코드 만들기 가이드 · 2026년 6월 25일</p>
+
+    <p>가장 많이 쓰이는 QR이 바로 URL QR입니다. 웹사이트 주소를 코드 하나에 담아, 손님이 긴 주소를 한 글자씩 입력하지 않고 카메라로 비추기만 하면 해당 페이지가 열립니다. 쇼핑몰·예약 페이지·이벤트 신청·유튜브 영상·블로그 글 등 "온라인 어딘가로 보내고 싶은 모든 순간"이 URL QR의 무대입니다. 명함, 포스터, 전단지, 제품 포장, 차량 광고, 발표 슬라이드까지 오프라인과 온라인을 잇는 다리 역할을 합니다.</p>
+
+    <h2>어떤 주소든 QR이 됩니다</h2>
+    <p>URL QR은 형식을 가리지 않습니다. <strong>예약·신청 폼</strong>(네이버 예약, 구글 폼), <strong>SNS·채널</strong>(인스타그램, 유튜브, 카카오 채널), <strong>지도</strong>(가게 위치 링크), <strong>결제·송금</strong>(스마트스토어, 후원 페이지), <strong>앱 설치 페이지</strong>(스토어 링크)까지 웹 주소라면 무엇이든 담을 수 있습니다. 손님 입장에서는 "타이핑 없이 한 번에 도착"이라는 경험이 핵심이라, 종이 위에 긴 주소를 적어 두는 것보다 전환율이 훨씬 높습니다.</p>
+
+    <h2>만드는 순서</h2>
+    <ol>
+      <li><strong>주소 복사</strong> — 연결할 페이지를 브라우저에서 열고 주소창의 URL을 복사합니다.</li>
+      <li><strong>URL 탭에 붙여넣기</strong> — <a href="/">QR코드 만들기</a>의 URL 탭에 주소를 붙여 넣으면 미리보기가 바로 그려집니다.</li>
+      <li><strong>스캔 테스트</strong> — 본인 폰으로 비춰 의도한 페이지가 열리는지 확인합니다. 오타가 있으면 엉뚱한 곳으로 갑니다.</li>
+      <li><strong>고화질 저장</strong> — 인쇄용이면 고화질 x4 PNG로 저장합니다.</li>
+    </ol>
+
+    <h2>안정적인 링크 QR을 위한 팁</h2>
+    <ul>
+      <li><strong>주소는 짧게.</strong> URL이 짧을수록 QR의 점이 듬성듬성해져 작게 인쇄해도 잘 찍힙니다. 추적 파라미터가 긴 주소는 정리하거나 단축 URL을 쓰세요.</li>
+      <li><strong>https로.</strong> http보다 https 주소가 보안 경고 없이 열려 신뢰도가 높습니다.</li>
+      <li><strong>모바일 화면 확인.</strong> 손님 대부분이 폰으로 접속하므로 연결 페이지가 모바일에서 잘 보이는지 확인하세요.</li>
+      <li><strong>여백을 자르지 마세요.</strong> QR 둘레의 흰 여백은 스캐너가 코드 경계를 잡는 데 필요합니다.</li>
+    </ul>
+
+    <h2>자주 묻는 질문</h2>
+    <h3>긴 URL도 QR로 만들 수 있나요?</h3>
+    <p>가능하지만 길수록 점이 촘촘해져 작게 인쇄하면 인식이 어렵습니다. 단축 URL로 줄여 만드는 것이 안정적입니다.</p>
+    <h3>QR코드 안에 광고나 추적이 들어가나요?</h3>
+    <p>정적 URL QR은 입력한 주소만 담고 중간 광고나 추적을 하지 않습니다. 본 도구는 주소를 서버로 보내지 않고 브라우저에서 생성합니다.</p>
+    <h3>나중에 연결 주소를 바꾸고 싶으면요?</h3>
+    <p>정적 QR은 인쇄 후 못 바꿉니다. 바꿀 가능성이 있으면 단축 URL로 만들고 목적지만 나중에 바꾸세요. <a href="/guides/qr-dynamic-vs-static">동적 vs 정적 가이드</a>를 보세요.</p>
+
+    <div class="guide-cta">
+      <p>연결할 웹페이지 주소를 붙여 넣고 지금 바로 URL QR코드를 만들어 보세요.</p>
+      <a href="/" class="btn-cta">무료로 URL QR 만들기</a>
+    </div>
+
+    <section class="guide-related">
+      <h2>함께 읽으면 좋은 가이드</h2>
+      <ul>
+        <li><a href="/guides/qr-code-howto">QR코드 만드는 법 — 무료로 1분 만에</a> — QR 종류와 저장 형식 기본기</li>
+        <li><a href="/guides/instagram-qr">인스타그램 QR코드 만들기</a> — 프로필 링크를 QR로</li>
+        <li><a href="/guides/youtube-qr">유튜브 채널 QR코드 만들기</a> — 영상·구독 유도를 QR로</li>
+        <li><a href="/guides/qr-dynamic-vs-static">동적 QR vs 정적 QR 차이</a> — 링크를 나중에 바꾸고 싶을 때</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="활용 가이드">
+        <span class="footer-nav-title">활용 가이드</span>
+        <a href="/guides/qr-code-howto">QR코드 만드는 법</a>
+        <a href="/guides/qr-business-card">QR코드 명함 만들기</a>
+        <a href="/guides/wifi-qr">매장 와이파이 QR코드 만들기</a>
+        <a href="/guides/qr-marketing">QR코드 마케팅 활용법 7가지</a>
+        <a href="/guides/qr-error-correction">QR코드 인식 문제 해결법</a>
+        <a href="/guides/qr-dynamic-vs-static">동적 QR vs 정적 QR 차이</a>
+      </nav>
+      <nav class="footer-nav" aria-label="사이트 정보">
+        <a href="/about">사이트 소개</a>
+        <a href="/terms">이용약관</a>
+        <a href="/privacy">개인정보처리방침</a>
+      </nav>
+      <nav class="footer-nav" aria-label="함께 쓰면 좋은 도구">
+        <span class="footer-nav-title">함께 쓰면 좋은 도구</span>
+        <a href="https://pixel.matchiq.co.kr" rel="noopener">도트 그림 그리는 픽셀아트 메이커</a>
+        <a href="https://resume.matchiq.co.kr" rel="noopener">무료 이력서 만들기</a>
+        <a href="https://diagram.matchiq.co.kr" rel="noopener">순서도·다이어그램 메이커</a>
+        <a href="https://stockpro.kr" rel="noopener">주식·코인 수익 계산기</a>
+        <a href="https://agihanki.matchiq.co.kr" rel="noopener">아기 이유식 계산기</a>
+      </nav>
+      <p>&copy; 2026 QR코드 만들기. 무료 QR코드 생성기.</p>
+    </div>
+  </footer>
+</body>
+</html>

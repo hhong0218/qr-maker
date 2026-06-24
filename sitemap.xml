@@ -61,6 +61,48 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://qr.matchiq.co.kr/guides/url-qr</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qr.matchiq.co.kr/guides/event-qr</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qr.matchiq.co.kr/guides/menu-qr</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qr.matchiq.co.kr/guides/seat-qr</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qr.matchiq.co.kr/guides/attendance-qr</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qr.matchiq.co.kr/guides/instagram-qr</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qr.matchiq.co.kr/guides/youtube-qr</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://qr.matchiq.co.kr/about</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>yearly</changefreq>
