@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free QR Code Scanner | Read QR Codes from Photo or Camera</title>
+  <meta name="description" content="Scan QR codes for free and see the decoded content instantly. Upload an image or scan live with your camera. Everything runs in your browser, nothing is uploaded.">
+  <meta name="keywords" content="QR code scanner, QR code reader online, decode QR code, scan QR code from image, QR code reader camera, free QR scanner">
+  <link rel="canonical" href="https://qr.matchiq.co.kr/en/qr-scanner">
+  <link rel="alternate" hreflang="ko" href="https://qr.matchiq.co.kr/qr-scanner">
+  <link rel="alternate" hreflang="en" href="https://qr.matchiq.co.kr/en/qr-scanner">
+  <link rel="alternate" hreflang="x-default" href="https://qr.matchiq.co.kr/qr-scanner">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qr.matchiq.co.kr/en/qr-scanner">
+  <meta property="og:title" content="Free QR Code Scanner | Read QR Codes from Photo or Camera">
+  <meta property="og:description" content="Scan QR codes for free and see the decoded content instantly. Upload an image or scan live with your camera. Everything runs in your browser, nothing is uploaded.">
+  <meta property="og:site_name" content="QR Code Generator">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://qr.matchiq.co.kr/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Free QR Code Scanner - read any QR code with no sign-up">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free QR Code Scanner | Read QR Codes from Photo or Camera">
+  <meta name="twitter:description" content="Scan QR codes for free and see the decoded content instantly. Upload an image or scan live with your camera. Everything runs in your browser, nothing is uploaded.">
+  <meta name="twitter:image" content="https://qr.matchiq.co.kr/og-image.png">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "QR Code Scanner",
+    "url": "https://qr.matchiq.co.kr/en/qr-scanner",
+    "description": "Scan QR codes for free and see the decoded content instantly. Upload an image or scan live with your camera. Everything runs in your browser, nothing is uploaded.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I scan a QR code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There are two ways to scan a QR code here. First, upload a photo that contains a QR code and it is decoded instantly. Second, tap 'Start camera' to turn on your webcam and point it at a QR code for live, real-time recognition. This is handy whenever your phone's camera app is not convenient to use, when you want to check the content of a QR image you already have saved, or when you simply want to read a QR code quickly from a computer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the image I upload sent to a server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Any image you upload or camera frame you scan is analyzed entirely inside your browser and is never sent to a server. QR decoding runs completely in client-side JavaScript, so even if you scan a QR code containing a business card or personal information, there is no risk of that content leaving your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it safe to click a link found inside a scanned QR code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Anyone can create a QR code, so a link decoded from one is not automatically safe. If the QR code is from an unknown or untrusted source, check the domain carefully before clicking. This tool never opens a decoded link automatically. Instead, it shows a warning that the link leads to an external site before you choose to open it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if camera scanning does not work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Camera scanning requires you to grant camera permission in your browser. Check the camera icon near your address bar to confirm access was allowed. This feature also requires a secure HTTPS connection, and it will not work on a device with no camera or when another program is already using the camera. If you cannot grant camera access, take a photo of the QR code instead and use the image upload option."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can this scan every type of QR code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it can read most standard QR codes, including those containing a URL, plain text, Wi-Fi credentials, or a contact card (vCard). Recognition can fail if the image is too blurry, damaged, or if glare from lighting covers the code. In that case, try retaking the photo so the QR code appears large and sharp, or move the camera closer to the code while scanning."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/en/" class="logo">
+        <span class="logo-icon">▣</span>
+        <h1>QR Code Scanner</h1>
+      </a>
+      <p class="tagline">Read any QR code from a photo or your camera</p>
+      <a class="lang-switch" href="/qr-scanner" hreflang="ko" lang="ko">한국어</a>
+    </div>
+  </header>
+
+  <div class="tips-banner" aria-live="polite">
+    <div class="tips-track">
+      <p class="tip active">Uploaded images are analyzed in your browser and never sent to a server</p>
+      <p class="tip">A sharp, well-lit, close-up photo scans more reliably</p>
+      <p class="tip">Check the domain before opening a link from an unfamiliar QR code</p>
+    </div>
+  </div>
+
+  <main class="main-layout container">
+    <aside class="settings-panel">
+      <div class="input-tabs" role="tablist">
+        <button class="tab-btn active" data-scan-tab="upload" role="tab" aria-selected="true">Upload image</button>
+        <button class="tab-btn" data-scan-tab="camera" role="tab">Scan with camera</button>
+      </div>
+
+      <div class="tab-panel active" id="panel-upload" role="tabpanel">
+        <label class="field-label" for="qr-image-input">Choose an image containing a QR code</label>
+        <input type="file" id="qr-image-input" class="file-input" accept="image/png,image/jpeg,image/jpg,image/webp">
+        <p class="field-hint">Choose a PNG/JPG/WEBP image and it scans instantly</p>
+        <div class="scanner-dropzone" id="scanner-dropzone">
+          <span class="scanner-dropzone-icon">🖼️</span>
+          <p>You can also drag and drop an image here</p>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-camera" role="tabpanel">
+        <p class="field-hint">Grant camera access to scan QR codes live</p>
+        <button type="button" class="btn-primary" id="camera-start">Start camera</button>
+        <button type="button" class="btn-secondary hidden" id="camera-stop">Stop camera</button>
+        <p class="field-hint camera-error hidden" id="camera-error"></p>
+      </div>
+
+      <section class="history-section">
+        <h3 class="subsection-title">Recent scans</h3>
+        <ul class="history-list" id="scan-history-list">
+          <li class="history-empty">No scans yet</li>
+        </ul>
+      </section>
+    </aside>
+
+    <section class="preview-panel">
+      <h2 class="preview-title">Scan result</h2>
+      <div class="preview-wrapper scanner-preview-wrapper">
+        <video id="scanner-video" class="hidden" playsinline muted aria-label="Camera preview"></video>
+        <canvas id="scanner-canvas" class="hidden"></canvas>
+        <img id="scanner-image-preview" class="hidden" alt="Uploaded QR code image">
+        <div class="scanner-placeholder" id="scanner-placeholder">
+          <span class="scanner-placeholder-icon">▣</span>
+          <p>Upload an image or start the camera<br>and the preview appears here</p>
+        </div>
+      </div>
+
+      <div class="scan-result hidden" id="scan-result">
+        <p class="field-label">Decoded content</p>
+        <div class="scan-result-box" id="scan-result-text"></div>
+
+        <div class="scan-result-link hidden" id="scan-result-link-wrap">
+          <p class="field-hint">⚠️ This link leads to an external site. Anyone can create a QR code, so check the address before clicking if you do not trust the source.</p>
+          <a href="#" id="scan-result-link" class="btn-secondary" target="_blank" rel="noopener noreferrer">🔗 Open link (external site)</a>
+        </div>
+
+        <div class="export-buttons scan-result-actions">
+          <button class="btn-primary" id="scan-copy-btn">Copy to clipboard</button>
+          <button class="btn-secondary" id="scan-reset-btn">Scan another</button>
+        </div>
+      </div>
+
+      <div class="scan-empty-state hidden" id="scan-empty-state">
+        <p>⚠️ No QR code was found in that image. Try again with a photo where the QR code is clear and unobstructed.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- AD-SLOT:Position A | After AdSense approval, replace this comment with:
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-PENDING" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script> -->
+
+  <section class="intro-section container">
+    <h2>What is this tool</h2>
+    <p>QR Code Scanner reads the content already stored inside an existing QR code. It is especially useful for a QR code printed on a business card, stuck to a poster, or saved as an image file, in any situation where lining up your phone's camera app is awkward. Upload a photo or point your computer's webcam at the code, and the URL, text, Wi-Fi details, or whatever it contains appears right away. Need to make a new QR code instead? Head over to the <a href="/en/">QR Code Generator</a> to create one for free.</p>
+
+    <h2>How to use it</h2>
+    <p>To scan from an image, open the "Upload image" tab and choose a photo containing a QR code, or drag one onto the drop zone. Scanning starts automatically the moment you select a file, and the decoded content appears within a couple of seconds. To scan live, open the "Scan with camera" tab, click "Start camera," allow the browser's camera permission prompt, and center the QR code in the camera view; it is recognized automatically. If the result is a URL, the "Open link" button takes you there, and the "Copy to clipboard" button lets you paste the text anywhere else.</p>
+
+    <h2>Is it safe</h2>
+    <p>Yes. Any image you upload or camera frame you scan is never sent to a server; QR decoding runs entirely in your browser using JavaScript. That said, <strong>the safety of what the QR code actually contains depends on whoever created it.</strong> When the scan result is a URL, this tool never navigates there automatically. It always shows a warning that the link leads to an external site before you click. If you scanned a QR code from an unknown source, double-check that the domain looks legitimate before opening any link.</p>
+  </section>
+
+  <section class="faq-section container">
+    <h2 class="section-title">Frequently asked questions</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Q. How do I scan a QR code?</summary>
+        <p>There are two ways to scan a QR code here. First, upload a photo that contains a QR code and it is decoded instantly. Second, tap "Start camera" to turn on your webcam and point it at a QR code for live, real-time recognition. This is handy whenever your phone's camera app is not convenient to use, when you want to check the content of a QR image you already have saved, or when you simply want to read a QR code quickly from a computer.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Q. Is the image I upload sent to a server?</summary>
+        <p>No. Any image you upload or camera frame you scan is analyzed entirely inside your browser and is never sent to a server. QR decoding runs completely in client-side JavaScript, so even if you scan a QR code containing a business card or personal information, there is no risk of that content leaving your device.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Q. Is it safe to click a link found inside a scanned QR code?</summary>
+        <p>Anyone can create a QR code, so a link decoded from one is not automatically safe. If the QR code is from an unknown or untrusted source, check the domain carefully before clicking. This tool never opens a decoded link automatically. Instead, it shows a warning that the link leads to an external site before you choose to open it.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Q. What if camera scanning does not work?</summary>
+        <p>Camera scanning requires you to grant camera permission in your browser. Check the camera icon near your address bar to confirm access was allowed. This feature also requires a secure HTTPS connection, and it will not work on a device with no camera or when another program is already using the camera. If you cannot grant camera access, take a photo of the QR code instead and use the image upload option.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Q. Can this scan every type of QR code?</summary>
+        <p>Yes, it can read most standard QR codes, including those containing a URL, plain text, Wi-Fi credentials, or a contact card (vCard). Recognition can fail if the image is too blurry, damaged, or if glare from lighting covers the code. In that case, try retaking the photo so the QR code appears large and sharp, or move the camera closer to the code while scanning.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <nav class="footer-nav" aria-label="Guides">
+        <span class="footer-nav-title">Guides</span>
+        <a href="/en/guides/how-to-make-a-qr-code">How to make a QR code for free</a>
+      </nav>
+      <nav class="footer-nav" aria-label="Site info">
+        <a href="/about">About</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/privacy">Privacy Policy</a>
+      </nav>
+      <nav class="footer-nav" aria-label="Other free tools">
+        <span class="footer-nav-title">Other free tools</span>
+        <a href="https://pixel.matchiq.co.kr" rel="noopener">Pixel Art Maker</a>
+        <a href="https://resume.matchiq.co.kr" rel="noopener">Free Resume Maker</a>
+        <a href="https://diagram.matchiq.co.kr" rel="noopener">Flowchart &amp; Diagram Maker</a>
+        <a href="https://stockpro.kr" rel="noopener">Stock &amp; Crypto Profit Calculator</a>
+      </nav>
+      <p>&copy; 2026 QR Code Generator. Free online QR code maker.</p>
+    </div>
+  </footer>
+
+  <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="../js/scanner.js" defer></script>
+</body>
+</html>
